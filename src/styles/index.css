@@ -58,7 +58,7 @@ h3 {
   font-size: 16px;
 }
 
-body {
+body, .App {
   margin: 0;
   padding: 0;
   font-family: 'Avenir Next';
@@ -115,5 +115,55 @@ body {
 
 .sidebar .sidebar__links h3 {
   font-weight: 600;
+}
+
+.InvListParent {
+  background-color: #F7F7F7;
+  height: 100vh;
+  padding: 2rem 3rem;
+}
+
+.InvListParent__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 2rem;
+}
+
+.InvListParent__title span {
+  color: #003B77;
+  font-weight: bold;
+}
+
+.InvListParent__title span:hover {
+  cursor: pointer;
+  color: #7C7C7C;
+}
+
+.InvListParent table {
+  width: 100%;
+  border: 1px solid #DEDEDE;
+}
+
+.InvListParent table .HeaderRow {
+  padding: 2rem;
+  background-color: white;
+  text-transform: uppercase;
+}
+
+.InvListParent table tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 2rem;
 }
 /*# sourceMappingURL=index.css.map */
