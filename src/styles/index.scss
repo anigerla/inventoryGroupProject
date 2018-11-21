@@ -149,6 +149,11 @@ body, .App {
       color: $navy;
       font-weight: bold;
     }
+
+    & span:hover {
+      cursor: pointer;
+      color: $grey1;
+    }
   }
 
   & table {
@@ -164,6 +169,7 @@ body, .App {
     & tr {
       display: flex;
       justify-content: space-between;
+      padding: 2rem;
     }
   }
 }
