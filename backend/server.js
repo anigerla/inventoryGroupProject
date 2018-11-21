@@ -28,3 +28,11 @@ app.use(bodyParser.json());
     //Body Parser code ends
  //middleware functions end
 //-----------------------------------------------------------------------------------------------------
+
+// code to start the server
+app.listen(8080, (err) => {
+    if (err) {
+        return console.error(err);
+    }
+    console.log("Choo choo at 8080");
+})
