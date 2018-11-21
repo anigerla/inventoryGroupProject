@@ -4,7 +4,36 @@ import React, { Component } from 'react';
 export default class InvList extends Component {
     render() {
         return (
-
+            <div className="InvListParent">
+                <div className="InvListParent__title">
+                    <h2>Inventory</h2>
+                    <span>Filter</span>
+                    {/* ideally should have filter functionality */}
+                </div>
+                <table>
+                    <tr className="HeaderRow">
+                        <th>Item</th>
+                        <th>Last Ordered</th>
+                        <th>Location</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Product Name</span>
+                            <span></span>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <img src="./Assets/Icons/Row Menu.svg" />
+                        </td>
+                    </tr>    
+                </table>
+            </div>
         )
     }
 }

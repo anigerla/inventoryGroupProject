@@ -94,3 +94,41 @@ body {
   padding: 0;
   font-family: 'Avenir Next';
 }
+
+//-------------------------------------------------------------------------------------------
+//Inventory List Component Styling starts
+.InvListParent {
+  background-color: $grey5;
+  height: 100vh;
+  padding: 2rem 3rem;
+
+  &__title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 2rem;
+
+    & span {
+      color: $navy;
+      font-weight: bold;
+    }
+  }
+
+  & table {
+    width: 100%;
+    border: 1px solid $grey4;
+  
+    & .HeaderRow {
+      padding: 2rem;
+      background-color: white;
+      text-transform: uppercase;
+    }
+
+    & tr {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+  //Inventory List Component Styling ends
