@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles/App.css';
+import SideBar from './components/SideBar';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
           >
             Learn React
           </a>
+          <SideBar/>
         </header>
       </div>
     );
