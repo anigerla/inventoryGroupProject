@@ -3,9 +3,11 @@ import React, { Component } from 'react'
 export default class NavBar extends Component {
   render() {
     return (
-      <div>
-        
-      </div>
+      <nav>
+        <form>
+          <input type="text" placeholder="Seach"></input>
+        </form>
+      </nav>
     )
   }
 }
