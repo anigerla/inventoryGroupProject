@@ -149,7 +149,7 @@ body {
 
 .InvListParent__title span:hover {
   cursor: pointer;
-  color: #7C7C7C;
+  color: #7c7c7c;
 }
 
 .InvListParent table {
@@ -161,6 +161,7 @@ body {
   padding: 2rem;
   background-color: white;
   text-transform: uppercase;
+  font-size: 12px;
 }
 
 .InvListParent table tr {
@@ -171,5 +172,15 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 2rem;
+}
+
+.InvListParent table tr td img:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.InvListParent table tr td span:first-child {
+  color: #004892;
+  font-weight: bold;
 }
 /*# sourceMappingURL=index.css.map */

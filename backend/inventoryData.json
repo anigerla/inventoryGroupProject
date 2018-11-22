@@ -1,0 +1,88 @@
+[
+    {
+        "id": "B0",
+        "productName":"Blob", 
+        "productdescr":"It's a blob",
+        "lastOrder": "05/24/2018",
+        "location": "Thunder Bay",
+        "quantity": "1",
+        "status": "In Stock",
+        "warehouseId": "A4"
+    },
+
+    {
+        "id": "B1",
+        "productName": "Blob",
+        "productdescr": "It's a blob",
+        "lastOrder": "05/24/2018",
+        "location": "Thunder Bay",
+        "quantity": "1",
+        "status": "In Stock",
+        "warehouseId": "A1"
+    },
+
+    {
+        "id": "B2",
+        "productName": "Blob",
+        "productdescr": "It's a blob",
+        "lastOrder": "05/24/2018",
+        "location": "Thunder Bay",
+        "quantity": "1",
+        "status": "In Stock",
+        "warehouseId": "A3" 
+    }, 
+    
+    {
+        "id": "B3",
+        "productName": "Blob",
+        "productdescr": "It's a blob",
+        "lastOrder": "05/24/2018",
+        "location": "Thunder Bay",
+        "quantity": "1",
+        "status": "In Stock",
+        "warehouseId": "A2"
+    },
+   
+    {
+        "id": "B4",
+        "productName": "Blob",
+        "productdescr": "It's a blob",
+        "lastOrder": "05/24/2018",
+        "location": "Thunder Bay",
+        "quantity": "1",
+        "status": "In Stock",
+        "warehouseId": "A4"
+    },
+    
+    {
+        "id": "B5",
+        "productName": "Blob",
+        "productdescr": "It's a blob",
+        "lastOrder": "05/24/2018",
+        "location": "Thunder Bay",
+        "quantity": "1",
+        "status": "In Stock",
+        "warehouseId": "A2"
+    },
+    
+    {
+        "id": "B6",
+        "productName": "Blob",
+        "productdescr": "It's a blob",
+        "lastOrder": "05/24/2018",
+        "location": "Thunder Bay",
+        "quantity": "1",
+        "status": "In Stock",
+        "warehouseId": "A3"
+    },
+    {
+        "id": "B7",
+        "productName": "Blob",
+        "productdescr": "It's a blob",
+        "lastOrder": "05/24/2018",
+        "location": "Thunder Bay",
+        "quantity": "1",
+        "status": "In Stock",
+        "warehouseId": "A1"
+    }
+]
