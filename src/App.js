@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './styles/App.css';
 import './styles/index.css';
 import {BrowserRouter as Router, Router, Link, Switch} from 'react-router-dom';
@@ -7,6 +6,8 @@ import NavBar from './components/NavBar.js';
 import SideBar from './components/SideBar.js';
 import InventoryDetails from './components/InvetoryDetails.js'
 
+import SideBar from './components/SideBar';
+import MainComponent from './components/MainComponent';
 
 class App extends Component {
   render() {
@@ -14,8 +15,8 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <NavBar/>
-            <SideBar/> 
+            <SideBar/>
+            <MainComponent /> 
             <Switch> 
               <Route path='/warehouses'/>
               <Route path='/inventory'/>
@@ -25,6 +26,7 @@ class App extends Component {
             </Switch>
           </div>
         </Router>
+       
       </div>
     );
   }
