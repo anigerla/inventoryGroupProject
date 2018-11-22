@@ -6,7 +6,7 @@ export default class InvList extends Component {
         return (
             <div className="InvListParent">
                 <div className="InvListParent__title">
-                    <h2>Inventory</h2>
+                    <h1>Inventory</h1>
                     <span>Filter</span>
                     {/* ideally should have filter functionality */}
                 </div>
