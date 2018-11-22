@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import Location from './Location';
-import Inventory from './Inventory';
+import LocationImg from './Image Components/LocationImg';
+import InventoryImg from './Image Components/InventoryImg.js';
+import UserImg from './Image Components/UserImg';
 
 export default class SideBar extends Component {
 
@@ -12,23 +13,15 @@ export default class SideBar extends Component {
           <img src="/assets/wordmark/Wordmark.svg" alt=""></img>
         </div>
         <div className="sidebar__links sidebar__inventory">
-          {/* <div>
-            <img src="/assets/icons/Inventory.svg" alt=""></img>
-          </div> */}
-          <Inventory/>
+          <InventoryImg/>
           <h3>Inventory</h3>
         </div>
         <div className="sidebar__links sidebar__location">
-          {/* <div>
-            <img src="/assets/icons/Location.svg" alt=""></img>
-          </div> */}
-          <Location/>
+          <LocationImg/>
           <h3>Location</h3>
         </div>
         <div className="sidebar__links sidebar__users">
-          <div>
-            <img src="/assets/icons/User.svg" alt=""></img>
-          </div>
+          <UserImg/>
           <h3>Users</h3>
         </div>
       </aside>
