@@ -92,16 +92,15 @@ $white05: #FFFFFF0D;
 }
 
 // Font Sizing 
-h1{
+h1 {
   font-size: 24px;
 }
-h2{
+h2 {
   font-size: 18px;
 }
-h3{
+h3 {
   font-size: 16px;
 }
-
 
 //button mixins 
 @mixin regularButton {
@@ -117,7 +116,7 @@ h3{
   border:none;
 }
 
-@mixin hoverButton{
+@mixin hoverButton {
   background-color: $navy; 
 }
 
@@ -142,19 +141,19 @@ body {
   font-family: 'Avenir Next';
 }
 
-.App{
+.App {
   display: flex;
 }
 
 // SideBar
 
-.sidebar{
+.sidebar {
   display: flex;
   flex-direction: column;
   background-color: $navy;
   min-width: 250px;
 
-  .sidebar__logo{
+  .sidebar__logo {
     img{
       height: 13px;
       width: 93px;
@@ -163,26 +162,26 @@ body {
     }
   }
 
-  .sidebar__links{
+  .sidebar__links {
     color: $white50;
     display: flex;
     align-items: center;
     height: 60px;
     padding: 5px 50px;
     cursor: pointer;
-    &:hover{
+    &:hover {
       color:$white;
       background-color: $blue;
-      svg{
-        g{
+      svg {
+        g {
           fill: $white
         }
       }
     }
-    svg{
+    svg {
       margin-right: 30px;
     }
-    h3{
+    h3 {
       font-weight: $demibold;
     }
   }
@@ -190,7 +189,7 @@ body {
 
 // Main Component
 
-.main{
+.main {
   width: 100%;
 }
 
@@ -203,7 +202,7 @@ body {
   height: 100vh;
   padding: 2rem 3rem;
 
-  &__title{
+  &__title {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -228,13 +227,29 @@ body {
       padding: 2rem;
       background-color: white;
       text-transform: uppercase;
+      font-size: 12px;
     }
 
     & tr {
       display: flex;
       justify-content: space-between;
       padding: 2rem;
+
+      & td img:hover {
+        color: red;
+        cursor: pointer;
+        }
+
+      & td span:first-child {
+        color: $blue;
+        font-weight: bold;
+
+      }
     }
+
+    //Dots Icon styling
+    //Fill colour: #3A3A3A
+    //Single Dot Size: 5 x 5 px
   }
 }
 
