@@ -1,0 +1,88 @@
+[
+    {
+        "id": 0,
+        "productName":"Blob", 
+        "productdescr":"It's a blob",
+        "lastOrder": "05/24/2018",
+        "location": "Thunder Bay",
+        "quantity": "1",
+        "status": "In Stock",
+        "warehouseId": "A4"
+    },
+
+    {
+        "id": 1,
+        "productName": "Blob",
+        "productdescr": "It's a blob",
+        "lastOrder": "05/24/2018",
+        "location": "Thunder Bay",
+        "quantity": "1",
+        "status": "In Stock",
+        "warehouseId": "A1"
+    },
+
+    {
+        "id": 2,
+        "productName": "Blob",
+        "productdescr": "It's a blob",
+        "lastOrder": "05/24/2018",
+        "location": "Thunder Bay",
+        "quantity": "1",
+        "status": "In Stock",
+        "warehouseId": "A3" 
+    }, 
+    
+    {
+        "id": 3,
+        "productName": "Blob",
+        "productdescr": "It's a blob",
+        "lastOrder": "05/24/2018",
+        "location": "Thunder Bay",
+        "quantity": "1",
+        "status": "In Stock",
+        "warehouseId": "A2"
+    },
+   
+    {
+        "id": 4,
+        "productName": "Blob",
+        "productdescr": "It's a blob",
+        "lastOrder": "05/24/2018",
+        "location": "Thunder Bay",
+        "quantity": "1",
+        "status": "In Stock",
+        "warehouseId": "A4"
+    },
+    
+    {
+        "id": 5,
+        "productName": "Blob",
+        "productdescr": "It's a blob",
+        "lastOrder": "05/24/2018",
+        "location": "Thunder Bay",
+        "quantity": "1",
+        "status": "In Stock",
+        "warehouseId": "A2"
+    },
+    
+    {
+        "id": 6,
+        "productName": "Blob",
+        "productdescr": "It's a blob",
+        "lastOrder": "05/24/2018",
+        "location": "Thunder Bay",
+        "quantity": "1",
+        "status": "In Stock",
+        "warehouseId": "A3"
+    },
+    {
+        "id": 7,
+        "productName": "Blob",
+        "productdescr": "It's a blob",
+        "lastOrder": "05/24/2018",
+        "location": "Thunder Bay",
+        "quantity": "1",
+        "status": "In Stock",
+        "warehouseId": "A1"
+    }
+]

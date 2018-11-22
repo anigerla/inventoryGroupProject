@@ -1,0 +1,66 @@
+[
+    {
+        "warehouseId": "A1",
+        "address": 
+            {
+            "street": "123 Main Street West",
+            "city": "Toronto",
+            "zipcode": "M6H 2H2"
+            },
+        "contact": 
+            {
+            "nameTitle": "Mara Weinberg, Warehouse Manager",
+            "phone": "+416 555 2345",
+            "email": "m@someemail.com"
+            },
+        "invType": "Industrial, Automotive, Heavy Industry"
+    },
+    {
+        "warehouseId": "A2",
+        "address": 
+            {
+            "street": "123 Main Street West",
+            "city": "Toronto",
+            "zipcode": "M6H 2H2"
+            },
+        "contact": 
+            {
+            "nameTitle": "Mara Weinberg, Warehouse Manager",
+            "phone": "+416 555 2345",
+            "email": "m@someemail.com"
+            },
+        "invType": "Industrial, Automotive, Heavy Industry"
+    },
+    {
+        "warehouseId": "A3",
+        "address": 
+            {
+            "street": "123 Main Street West",
+            "city": "Toronto",
+            "zipcode": "M6H 2H2"
+            },
+        "contact": 
+            {
+            "nameTitle": "Mara Weinberg, Warehouse Manager",
+            "phone": "+416 555 2345",
+            "email": "m@someemail.com"
+            },
+        "invType": "Industrial, Automotive, Heavy Industry"
+    },
+    {
+        "warehouseId": "A4",
+        "address": 
+            {
+            "street": "123 Main Street West",
+            "city": "Toronto",
+            "zipcode": "M6H 2H2"
+            },
+        "contact": 
+            {
+            "nameTitle": "Mara Weinberg, Warehouse Manager",
+            "phone": "+416 555 2345",
+            "email": "m@someemail.com"
+            },
+        "invType": "Industrial, Automotive, Heavy Industry"
+    }
+]
