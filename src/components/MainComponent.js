@@ -4,7 +4,7 @@ import InvList from './InvList';
 export default class MainComponent extends Component {
   render() {
     return (
-      <div>
+      <div className="main">
         <InvList />
       </div>
     )
