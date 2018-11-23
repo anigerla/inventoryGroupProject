@@ -7,8 +7,8 @@ export default class Inventory extends Component {
         <title>Group</title>
         <desc>Created with Sketch.</desc>
         <defs></defs>
-        <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g id="Icon/Inventory/White" transform="translate(-3.000000, -1.000000)" fill="#FFFFFF80" fill-rule="nonzero">
+        <g id="Symbols" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+            <g id="Icon/Inventory/White" transform="translate(-3.000000, -1.000000)" fill="#FFFFFF80" fillRule="nonzero">
                 <g id="file-notes-document">
                     <g id="Line_Icons" transform="translate(3.529412, 1.000000)">
                         <g id="Group">

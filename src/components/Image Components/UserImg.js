@@ -7,8 +7,8 @@ export default class UserImg extends Component {
         <title>Group</title>
         <desc>Created with Sketch.</desc>
         <defs></defs>
-        <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g id="Icon/User/White" transform="translate(-4.000000, -4.000000)" fill="#FFFFFF80" fill-rule="nonzero">
+            <g id="Symbols" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+            <g id="Icon/User/White" transform="translate(-4.000000, -4.000000)" fill="#FFFFFF80" fillRule="nonzero">
                 <g id="user">
                     <g id="Filled_Icons" transform="translate(4.333333, 4.333333)">
                         <g id="Group">
