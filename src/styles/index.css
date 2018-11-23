@@ -46,12 +46,6 @@
   font-style: italic;
 }
 
-
-body, .App {
-  margin: 0;
-  padding: 0;
-  font-family: 'Avenir Next';
-
 h1 {
   font-size: 24px;
 }
@@ -74,6 +68,11 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.container{
+  display:flex;
+  width:100%;
 }
 
 .sidebar {
@@ -177,6 +176,5 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 2rem;
-
 }
 /*# sourceMappingURL=index.css.map */
