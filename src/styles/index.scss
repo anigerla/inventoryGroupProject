@@ -235,15 +235,22 @@ body {
       justify-content: space-between;
       padding: 2rem;
 
+      & td {
+        font-size: 12px;
+      }
+
       & td img:hover {
-        color: red;
+        //use Matt's approach to add hover effect
         cursor: pointer;
         }
 
       & td span:first-child {
         color: $blue;
         font-weight: bold;
+      }
 
+      & td span:last-child {
+        font-size: 10px;
       }
     }
 

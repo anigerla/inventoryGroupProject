@@ -1,8 +1,35 @@
 //the UI for displaying the list of inventory items
 import React, { Component } from 'react';
+import Item from './Item';
 
 export default class InvList extends Component {
     render() {
+
+        // let loadVideos = this.props.videoArray;
+        // let videoCards = []; //cards used to display video "CARDS"
+        // for (let i = 1; i < loadVideos.length; i++) {
+        //     let video = <Link key={i} to={`/videos/${loadVideos[i].id}`}>
+        //         <VideoCard
+        //             title={loadVideos[i].title}
+        //             views={loadVideos[i].views}
+        //             image={loadVideos[i].image}
+        //         />
+        //     </Link>
+        //     videoCards.push(video);
+        // }
+
+        //loop that goes through each item object in the inventoryData list
+        //and passed the elements into relevant slots within the Item component
+        // let loadItem = this.props.itemsArray;
+        // let itemCards = [];
+        // for (let i = 1; i < loadItem.length; i++) {
+        //     let singleItem = 
+        //         <Item 
+                    
+
+        //         />
+        // } 
+
         return (
             <div className="InvListParent">
                 <div className="InvListParent__title">
@@ -11,27 +38,19 @@ export default class InvList extends Component {
                     {/* ideally should have filter functionality */}
                 </div>
                 <table>
-                    <tr className="HeaderRow">
-                        <th>Item</th>
-                        <th>Last Ordered</th>
-                        <th>Location</th>
-                        <th>Quantity</th>
-                        <th>Status</th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>Product Name</span>
-                            <span></span>
-                        </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <img src="./Assets/Icons/Row Menu.svg" />
-                        </td>
-                    </tr>    
+                    <thead>
+                        <tr className="HeaderRow">
+                            <th>Item</th>
+                            <th>Last Ordered</th>
+                            <th>Location</th>
+                            <th>Quantity</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        { Item }
+                    </tbody>
                 </table>
             </div>
         )

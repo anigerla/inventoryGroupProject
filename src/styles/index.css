@@ -174,13 +174,20 @@ body {
   padding: 2rem;
 }
 
+.InvListParent table tr td {
+  font-size: 12px;
+}
+
 .InvListParent table tr td img:hover {
-  color: red;
   cursor: pointer;
 }
 
 .InvListParent table tr td span:first-child {
   color: #004892;
   font-weight: bold;
+}
+
+.InvListParent table tr td span:last-child {
+  font-size: 10px;
 }
 /*# sourceMappingURL=index.css.map */
