@@ -120,7 +120,7 @@ h3 {
   background-color: $navy; 
 }
 
-//form field mixin
+// Form field mixin
 @mixin formField {
   font-family: 'Avenir Next';
   background-color: $white;
@@ -152,6 +152,7 @@ body {
   flex-direction: column;
   background-color: $navy;
   min-width: 250px;
+  z-index: 900;
 
   .sidebar__logo {
     img{
@@ -183,6 +184,67 @@ body {
     }
     h3 {
       font-weight: $demibold;
+    }
+  }
+}
+
+// Nav Bar
+
+.navbar{
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  box-shadow: -1px 2px 12px 2px $grey4;
+  position: relative;
+
+  .navbar__form{
+    input{
+      width: 381px;
+      height: 40px;
+      background-color: $grey5;
+      border: solid 1px $grey3;
+      border-radius: 2px;
+      font-size: 14px;
+      font-family: 'Avenir Next';
+      line-height:1.4em;
+      padding: 0 12px;
+      box-sizing: border-box;
+      font-weight: 500;
+      outline: none;
+      background-image: url('../components/Image Components/Search.svg');
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-position-x: 340px;
+      &::placeholder{
+        color: $grey1;
+      }
+      &:focus{
+        border-color: $blue;
+        color: $black;
+        &::placeholder{
+        color: $black;
+      }
+      }
+    }
+  }
+
+  .navbar__user{
+    display: flex;
+    align-items: center;
+    div{
+      width: 40px;
+      height: 40px;
+      background-color: $grey1;
+      border-radius: 50%;
+    }
+    svg{
+      margin: 0 70px 0 16px;
+      transform: rotate(-90deg);
+      g {
+          fill: $grey2;
+        }
     }
   }
 }
