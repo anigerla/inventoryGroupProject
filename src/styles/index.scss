@@ -1,6 +1,6 @@
 //Solid colors
 $black: #3A3A3A;
-$grey1: #7C7C7C;
+$grey1: #7c7c7c;
 $grey2:#ADADAD ;
 $grey3: #CACACA;
 $grey4:#DEDEDE;
@@ -92,16 +92,15 @@ $white05: #FFFFFF0D;
 }
 
 // Font Sizing 
-h1{
+h1 {
   font-size: 24px;
 }
-h2{
+h2 {
   font-size: 18px;
 }
-h3{
+h3 {
   font-size: 16px;
 }
-
 
 //button mixins 
 @mixin regularButton {
@@ -117,11 +116,11 @@ h3{
   border:none;
 }
 
-@mixin hoverButton{
+@mixin hoverButton {
   background-color: $navy; 
 }
 
-//form field mixin
+// Form field mixin
 @mixin formField {
   font-family: 'Avenir Next';
   background-color: $white;
@@ -142,19 +141,20 @@ body {
   font-family: 'Avenir Next';
 }
 
-.App{
+.App {
   display: flex;
 }
 
 // SideBar
 
-.sidebar{
+.sidebar {
   display: flex;
   flex-direction: column;
   background-color: $navy;
   min-width: 250px;
+  z-index: 900;
 
-  .sidebar__logo{
+  .sidebar__logo {
     img{
       height: 13px;
       width: 93px;
@@ -163,34 +163,95 @@ body {
     }
   }
 
-  .sidebar__links{
+  .sidebar__links {
     color: $white50;
     display: flex;
     align-items: center;
     height: 60px;
     padding: 5px 50px;
     cursor: pointer;
-    &:hover{
+    &:hover {
       color:$white;
       background-color: $blue;
-      svg{
-        g{
+      svg {
+        g {
           fill: $white
         }
       }
     }
-    svg{
+    svg {
       margin-right: 30px;
     }
-    h3{
+    h3 {
       font-weight: $demibold;
+    }
+  }
+}
+
+// Nav Bar
+
+.navbar{
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  box-shadow: -1px 2px 12px 2px $grey4;
+  position: relative;
+
+  .navbar__form{
+    input{
+      width: 381px;
+      height: 40px;
+      background-color: $grey5;
+      border: solid 1px $grey3;
+      border-radius: 2px;
+      font-size: 14px;
+      font-family: 'Avenir Next';
+      line-height:1.4em;
+      padding: 0 12px;
+      box-sizing: border-box;
+      font-weight: 500;
+      outline: none;
+      background-image: url('../components/Image Components/Search.svg');
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-position-x: 340px;
+      &::placeholder{
+        color: $grey1;
+      }
+      &:focus{
+        border-color: $blue;
+        color: $black;
+        &::placeholder{
+        color: $black;
+      }
+      }
+    }
+  }
+
+  .navbar__user{
+    display: flex;
+    align-items: center;
+    div{
+      width: 40px;
+      height: 40px;
+      background-color: $grey1;
+      border-radius: 50%;
+    }
+    svg{
+      margin: 0 70px 0 16px;
+      transform: rotate(-90deg);
+      g {
+          fill: $grey2;
+        }
     }
   }
 }
 
 // Main Component
 
-.main{
+.main {
   width: 100%;
 }
 
@@ -203,7 +264,7 @@ body {
   height: 100vh;
   padding: 2rem 3rem;
 
-  &__title{
+  &__title {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -228,13 +289,29 @@ body {
       padding: 2rem;
       background-color: white;
       text-transform: uppercase;
+      font-size: 12px;
     }
 
     & tr {
       display: flex;
       justify-content: space-between;
       padding: 2rem;
+
+      & td img:hover {
+        color: red;
+        cursor: pointer;
+        }
+
+      & td span:first-child {
+        color: $blue;
+        font-weight: bold;
+
+      }
     }
+
+    //Dots Icon styling
+    //Fill colour: #3A3A3A
+    //Single Dot Size: 5 x 5 px
   }
 }
 
