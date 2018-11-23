@@ -5,6 +5,21 @@ import Item from './Item';
 export default class InvList extends Component {
     render() {
 
+        let loadInv = this.props.itemsArray;
+        let itemList = [];
+        for (let i=1; i < loadInv.length; i++) {
+            let oneItem = 
+                <Item 
+                    prodName={loadInv[i].productName}
+                    prodDescr={loadInv[i].productdescr}
+                    lastOrder={loadInv[i].lastOrder}
+                    location={loadInv[i].location}
+                    quantity={loadInv[i].quantity}
+                    status={loadInv[i].status}
+                />
+            loadInv.push(oneItem);
+        }
+
         // let loadVideos = this.props.videoArray;
         // let videoCards = []; //cards used to display video "CARDS"
         // for (let i = 1; i < loadVideos.length; i++) {
@@ -49,7 +64,7 @@ export default class InvList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        { Item }
+                        { itemList }
                     </tbody>
                 </table>
             </div>
