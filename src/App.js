@@ -15,13 +15,7 @@ class App extends Component {
         <Router>
           <div className="container">
             <SideBar/>
-            <Switch> 
-              <Route path='/warehouses'/>
-              <Route path='/inventory'/>
-              <Route path='/warehouses/:id'/>
-              <Route path='/inventory/:id' component={InventoryDetails}/>
-              <Route path='/' component={MainComponent}/>
-            </Switch>
+            <MainComponent/>
           </div>
         </Router>
        

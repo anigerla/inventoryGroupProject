@@ -11,27 +11,29 @@ export default class InvList extends Component {
                     {/* ideally should have filter functionality */}
                 </div>
                 <table>
-                    <tr className="HeaderRow">
-                        <th>Item</th>
-                        <th>Last Ordered</th>
-                        <th>Location</th>
-                        <th>Quantity</th>
-                        <th>Status</th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>Product Name</span>
-                            <span></span>
-                        </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <img src="./Assets/Icons/Row Menu.svg" />
-                        </td>
-                    </tr>    
+                    <tbody>
+                        <tr className="HeaderRow">
+                            <th>Item</th>
+                            <th>Last Ordered</th>
+                            <th>Location</th>
+                            <th>Quantity</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Product Name</span>
+                                <span></span>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <img src="./Assets/Icons/Row Menu.svg" />
+                            </td>
+                        </tr>    
+                    </tbody>
                 </table>
             </div>
         )
