@@ -9,7 +9,13 @@ export default class MainComponent extends Component {
     return (
       <div className="main">
         <NavBar />
-        <InvList />
+        <Switch>
+          <Route path='/warehouses' component={WarehouseList}/>
+          <Route path='/inventory' />
+          <Route path='/warehouses/:id' />
+          <Route path='/inventory/:id' component={InventoryDetails} />
+          <Route path='/' component={InvList} />
+        </Switch>
       </div>
     )
   }

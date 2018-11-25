@@ -101,6 +101,9 @@ h2 {
 h3 {
   font-size: 16px;
 }
+h4{
+  font-size: 14px;
+}
 
 //button mixins 
 @mixin regularButton {
@@ -139,22 +142,35 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Avenir Next';
+  font-size: 12px;
 }
 
 .App {
   display: flex;
 }
 
-// SideBar
+// Main
 
+.main {
+  width: 100%;
+}
+
+
+// ----- SideBar
+a{                        // <Link> shows up as an <a> tag so styling to not be underlined
+  text-decoration: none;
+}
 .sidebar {
   display: flex;
   flex-direction: column;
   background-color: $navy;
   min-width: 250px;
   z-index: 900;
+  min-height: 100vh;
 
   .sidebar__logo {
+    display: flex;
+    justify-content: center;
     img{
       height: 13px;
       width: 93px;
@@ -169,7 +185,8 @@ body {
     align-items: center;
     height: 60px;
     padding: 5px 50px;
-    cursor: pointer;
+    text-decoration: none;
+
     &:hover {
       color:$white;
       background-color: $blue;
@@ -188,7 +205,7 @@ body {
   }
 }
 
-// Nav Bar
+// ----- Nav Bar
 
 .navbar{
   height: 80px;
@@ -249,19 +266,12 @@ body {
   }
 }
 
-// Main Component
-
-.main {
-  width: 100%;
-}
-
-
 //-------------------------------------------------------------------------------------------
 // Inventory List Component Styling starts
 
 .InvListParent {
   background-color: $grey5;
-  height: 100vh;
+  min-height: 100vh;
   padding: 2rem 3rem;
 
   &__title {
@@ -269,6 +279,10 @@ body {
     justify-content: space-between;
     align-items: center;
     margin: 0 2rem;
+
+    h1{
+      margin: 0;
+    }
 
     & span {
       color: $navy;
@@ -315,4 +329,62 @@ body {
   }
 }
 
-  //Inventory List Component Styling ends
+// ----- Warehouse List
+
+.warehouse__card{
+  background-color: $white;
+  border: 1px solid $grey4;
+  border-radius: 2px;
+  padding: 25px 35px;
+  margin: 20px 0;
+
+  .warehouse__name{
+    color: $navy; 
+    margin: 0;
+    margin-bottom: 12px;
+  }
+  
+  .warehouse__details{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-weight: 600;
+    .warehouse--black{
+      color: $black;
+      margin-bottom: 8px;
+    }
+    p{
+      margin: 3px 0;
+      color: $grey1;
+    }
+  }
+}
+.warehouse__add{
+  width: 65px;
+  height: 65px;
+  background-color: $blue;
+  font-size: 40px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 60px;
+  right: 100px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0px 40px 55px 0px #00000026;
+  cursor: pointer;
+  p{
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:$white;
+  }
+  &:hover {
+    background-color: $navy;
+  }
+}
