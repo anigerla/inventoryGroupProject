@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import InvList from './InvList';
 import NavBar from './NavBar';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import InventoryDetails from './InventoryDetails.js'
-import WarehouseList from './WarehouseList';
+import {Route, Switch} from 'react-router-dom';
+import InventoryDetails from './InventoryDetails.js';
 
 export default class MainComponent extends Component {
   render() {
