@@ -18,11 +18,12 @@ class App extends Component {
             <div className="main">
               <NavBar/>
               <Switch> 
-                <Route path='/warehouses/:id' component={WarehouseInventoryList}/>
-                <Route path='/inventory/:id' component={InventoryDetails}/>
+                <Route path='/warehouses/:id' exact component={WarehouseInventoryList}/>
+                <Route path='/inventory/:id' exact component={InventoryDetails}/>
                 <Route path='/warehouses' exact component={WarehouseList}/>
-                <Route path='/inventory'/>
-                <Route path='/' component={InvList}/>
+                <Route path='/inventory' exact component={InvList}/>
+                <Route path='/' exact component={InvList}/>
+                {/* Are we adding not found page as well? */}
               </Switch>
             </div>
           </div>
