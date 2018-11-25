@@ -12,13 +12,6 @@ import WarehouseInventoryList from './components/WarehouseInventoryList';
 class App extends Component {
   render() {
     return (
-<<<<<<< HEAD
-      <div className="App">
-        <Router>
-          <div className="container">
-            <SideBar/>
-            <MainComponent/>
-=======
       <Router>
         <div className="App">
           <SideBar/>
@@ -32,7 +25,6 @@ class App extends Component {
                 <Route path='/' component={InvList}/>
               </Switch>
             </div>
->>>>>>> development
           </div>
         </Router>
        

@@ -8,15 +8,8 @@ export default class MainComponent extends Component {
   render() {
     return (
       <div className="main">
-        {/* <InvList /> */}
         <NavBar />
-        <Switch> 
-          <Route path='/warehouses'/>
-          <Route path='/inventory'/>
-          <Route path='/warehouses/:id'/>
-          <Route path='/inventory/:id' component={InventoryDetails}/>
-          <Route path='/' component={InvList}/>
-        </Switch>
+        <InvList />
       </div>
     )
   }
