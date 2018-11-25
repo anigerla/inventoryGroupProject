@@ -7,11 +7,9 @@ import InventoryDetails from './InventoryDetails.js';
 export default class MainComponent extends Component {
 
   //initialize state
-  state = {
-    itemsArray: []
-    //figure out how the array picks up data from the backend file (fetch?)
-    //in Brainflix why one is an object and another an array? Does it matter or the program can pick up the data anyway?
-  };
+  // state = {
+  //   itemsArray: []
+  // };
 
   // componentDidMount {
   //   fetch get request for InvList data
