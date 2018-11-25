@@ -6,7 +6,7 @@ import NavBar from './components/NavBar.js';
 import InventoryDetails from './components/InventoryDetails.js'
 import InvList from './components/InvList.js'
 import SideBar from './components/SideBar';
-// import WarehouseInventoryList from './components/WarehouseInventoryList';
+import WarehouseInventoryList from './components/WarehouseInventoryList';
 import WarehouseList from './components/WarehouseList';
 
 class App extends Component {
@@ -18,10 +18,10 @@ class App extends Component {
             <div className="main">
               <NavBar/>
               <Switch> 
-                <Route path='/warehouses' component={WarehouseList}/>
-                <Route path='/inventory'/>
                 <Route path='/warehouses/:id'/>
                 <Route path='/inventory/:id' component={InventoryDetails}/>
+                <Route path='/warehouses' component={WarehouseInventoryList}/>
+                <Route path='/inventory'/>
                 <Route path='/' component={InvList}/>
               </Switch>
             </div>
