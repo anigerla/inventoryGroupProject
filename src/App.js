@@ -17,7 +17,7 @@ class App extends Component {
             <SideBar/>
             <Switch> 
               <Route path='/warehouses'/>
-              <Route path='/inventory'/>
+              <Route path='/inventory' component={MainComponent}/>
               <Route path='/warehouses/:id'/>
               <Route path='/inventory/:id' component={InventoryDetails}/>
               <Route path='/' component={MainComponent}/>

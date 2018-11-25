@@ -58,6 +58,11 @@ h3 {
   font-size: 16px;
 }
 
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -119,13 +124,19 @@ body {
   font-weight: 600;
 }
 
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
 .main {
   width: 100%;
 }
 
 .InvListParent {
   background-color: #F7F7F7;
-  height: 100vh;
   padding: 2rem 3rem;
 }
 
@@ -155,39 +166,79 @@ body {
 .InvListParent table {
   width: 100%;
   border: 1px solid #DEDEDE;
+  border-collapse: collapse;
+}
+
+.InvListParent table th, .InvListParent table td {
+  padding: 1.5rem;
+}
+
+.InvListParent table td:nth-child(n+4), .InvListParent table th:nth-child(n+4) {
+  text-align: right;
+}
+
+.InvListParent table thead {
+  display: table-header-group;
 }
 
 .InvListParent table .HeaderRow {
-  padding: 2rem;
-  background-color: white;
+  background-color: #FFFFFF;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 14px;
+  text-align: left;
 }
 
-.InvListParent table tr {
+.InvListParent table .HeaderRow th:first-child {
+  text-align: left;
+  width: 33%;
+}
+
+.InvListParent table .HeaderRow th:last-child {
+  padding-right: 0;
+}
+
+.InvListParent table tbody tr:nth-child(even) {
+  background-color: #FFFFFF;
+}
+
+.InvListParent table tbody tr:nth-child(odd) {
+  background-color: #F7F7F7;
+}
+
+.InvListParent table .ItemRow span:first-child {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 2rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: left;
 }
 
-.InvListParent table tr td {
+.InvListParent table .ItemRow span:first-child:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #3A3A3A;
+}
+
+.InvListParent table td {
   font-size: 12px;
+  text-align: left;
 }
 
-.InvListParent table tr td img:hover {
+.InvListParent table td:first-child {
+  width: 33%;
+}
+
+.InvListParent table td img:hover {
   cursor: pointer;
 }
 
-.InvListParent table tr td span:first-child {
+.InvListParent table td span:first-child {
   color: #004892;
   font-weight: bold;
-}
-
-.InvListParent table tr td span:last-child {
-  font-size: 10px;
+  font-size: 16px;
+  padding-bottom: 5px;
 }
 /*# sourceMappingURL=index.css.map */

@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 
 export default class Item extends Component {
     render() {
+
         return (
             <tr className="ItemRow">
                 <td>
-                    <span>{this.props.productName}}</span>
-                    <span>{this.props.productdescr}</span>
+                    {/* for sprint2 link to each individual item will be added
+                    <Link to="/inventory/:id"> */}
+                        <span>{this.props.prodName}</span>
+                    {/* </Link> */}
+                    <span>{this.props.prodDescr}</span>
                 </td>
                 <td>{this.props.lastOrder}</td>
                 <td>{this.props.location}</td>
@@ -15,6 +19,6 @@ export default class Item extends Component {
                 <td>
                     <img src="./Assets/Icons/Row Menu.svg" alt="" />
                 </td>
-            </tr>    
+            </tr> 
     )}
 }

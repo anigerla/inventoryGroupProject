@@ -20,7 +20,8 @@ export default class MainComponent extends Component {
     return (
       <div className="main">
         <NavBar />
-        <InvList itemsArray = {this.state.itemsArray}/>
+        {/* <InvList itemsArray = {this.state.itemsArray}/> */}
+        <InvList />
       </div>
     )
   }
