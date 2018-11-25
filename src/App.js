@@ -4,9 +4,9 @@ import './styles/index.css';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import NavBar from './components/NavBar.js';
 import InventoryDetails from './components/InventoryDetails.js'
+import InvList from './components/InvList.js'
 
 import SideBar from './components/SideBar';
-import MainComponent from './components/MainComponent';
 import WarehouseInventoryList from './components/WarehouseInventoryList';
 
 class App extends Component {
