@@ -5,13 +5,26 @@ import {Route, Switch} from 'react-router-dom';
 import InventoryDetails from './InventoryDetails.js';
 
 export default class MainComponent extends Component {
+
+  //initialize state
+  // state = {
+  //   itemsArray: []
+  // };
+
+  // componentDidMount {
+  //   fetch get request for InvList data
+  //   fet get request for WarehouseList data
+  // }
+
   render() {
     return (
       <div className="main">
         <NavBar />
+        {/* <InvList itemsArray = {this.state.itemsArray}/> */}
+        <InvList />
         <Switch>
           <Route path='/warehouses' component={WarehouseList}/>
-          <Route path='/inventory' />
+          <Route path='/inventory' component={InvList}/>
           <Route path='/warehouses/:id' />
           <Route path='/inventory/:id' component={InventoryDetails} />
           <Route path='/' component={InvList} />
