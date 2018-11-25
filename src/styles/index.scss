@@ -335,7 +335,7 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
   background-color: $white;
   border: 1px solid $grey4;
   border-radius: 2px;
-  padding: 35px;
+  padding: 25px 35px;
   margin: 20px 0;
 
   .warehouse__name{
@@ -354,7 +354,7 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
       margin-bottom: 8px;
     }
     p{
-      margin: 5px 0;
+      margin: 3px 0;
       color: $grey1;
     }
   }

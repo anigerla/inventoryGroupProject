@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import List1 from '../warehouseData.json'
+import { Link } from 'react-router-dom';
+
 export default class WarehouseList extends Component {
 	
 
@@ -13,7 +15,9 @@ export default class WarehouseList extends Component {
 				{
 					List1.map( (each, i) => {
 						return <div className="warehouse__card" key={each.warehouseId} id={each.warehouseId}>
-							<h2 className="warehouse__name">Warehouse Number {i + 1}</h2>
+							<Link to={"/warehouses/" + each.warehouseId}>
+								<h2 className="warehouse__name">Warehouse Number {i + 1}</h2>
+							</Link>
 							<div className="warehouse__details">
 								<div className="warehouse__address">
 									<p className="warehouse--black">ADDRESS</p>
