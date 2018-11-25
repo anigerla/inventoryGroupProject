@@ -7,25 +7,28 @@ import InventoryDetails from './components/InventoryDetails.js'
 
 import SideBar from './components/SideBar';
 import MainComponent from './components/MainComponent';
+import WarehouseInventoryList from './components/WarehouseInventoryList';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Router>
-          <div className="container">
-            <SideBar/>
-            <Switch> 
-              <Route path='/warehouses'/>
-              <Route path='/inventory'/>
-              <Route path='/warehouses/:id'/>
-              <Route path='/inventory/:id' component={InventoryDetails}/>
-              <Route path='/' component={MainComponent}/>
-            </Switch>
+      <Router>
+        <div className="App">
+          <SideBar/>
+            <div className="main">
+              <NavBar/>
+              <Switch> 
+                <Route path='/warehouses' component={WarehouseInventoryList}/>
+                <Route path='/inventory'/>
+                <Route path='/warehouses/:id'/>
+                <Route path='/inventory/:id' component={InventoryDetails}/>
+                <Route path='/' component={InvList}/>
+              </Switch>
+            </div>
           </div>
         </Router>
        
-      </div>
+      
     );
   }
 }
