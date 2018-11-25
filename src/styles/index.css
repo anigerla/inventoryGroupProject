@@ -388,4 +388,39 @@ a {
 .warehouse__add:hover {
   background-color: #003B77;
 }
+
+.InvDetailsParent {
+  background-color: #F7F7F7;
+  min-height: 100vh;
+  padding: 2rem 3rem;
+}
+
+.InvDetailsParent .detailCard {
+  background-color: #FFFFFF;
+  border: solid #CACACA 1px;
+  padding: 2.8em;
+  text-align: justify;
+}
+
+.InvDetailsParent .detailCard .title__name {
+  color: #004892;
+  font-weight: 600;
+  display: inline-block;
+  text-align: left;
+}
+
+.InvDetailsParent .detailCard .title__newOrderButton {
+  font-family: 'Avenir Next';
+  background-color: #004892;
+  border-radius: 3px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4em;
+  letter-spacing: .2px;
+  border: none;
+  padding: .8em 2em;
+  display: inline-block;
+  text-align: right;
+}
 /*# sourceMappingURL=index.css.map */

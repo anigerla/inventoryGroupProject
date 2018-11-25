@@ -388,3 +388,38 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
     background-color: $navy;
   }
 }
+  //Inventory List Component Styling ends
+
+  //Inventory Details Component Styling 
+  .InvDetailsParent{
+    background-color: $grey5;
+   
+    min-height: 100vh;
+    padding: 2rem 3rem;
+    
+    
+    .detailCard{
+      background-color:$white;
+      border: solid $grey3 1px;
+      padding: 2.8em;
+      text-align: justify;
+      .title{
+        &__name{
+          color:$blue;
+          font-weight: 600;
+          display:inline-block;
+          text-align:left;
+        }
+
+        &__newOrderButton{
+          @include regularButton();
+          padding:.8em 2em;
+          display:inline-block;
+          text-align: right;
+        }
+      }
+  }
+
+  
+
+  }
