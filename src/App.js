@@ -18,10 +18,10 @@ class App extends Component {
             <div className="main">
               <NavBar/>
               <Switch> 
-                <Route path='/warehouses' component={WarehouseInventoryList}/>
-                <Route path='/inventory'/>
                 <Route path='/warehouses/:id'/>
                 <Route path='/inventory/:id' component={InventoryDetails}/>
+                <Route path='/warehouses' component={WarehouseInventoryList}/>
+                <Route path='/inventory'/>
                 <Route path='/' component={InvList}/>
               </Switch>
             </div>
