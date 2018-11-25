@@ -58,6 +58,10 @@ h3 {
   font-size: 16px;
 }
 
+h4 {
+  font-size: 14px;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -67,12 +71,21 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Avenir Next';
+  font-size: 12px;
 }
 
 .App {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.main {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
 }
 
 .sidebar {
@@ -85,6 +98,17 @@ body {
           flex-direction: column;
   background-color: #003B77;
   min-width: 250px;
+  z-index: 900;
+  min-height: 100vh;
+}
+
+.sidebar .sidebar__logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .sidebar .sidebar__logo img {
@@ -104,7 +128,7 @@ body {
           align-items: center;
   height: 60px;
   padding: 5px 50px;
-  cursor: pointer;
+  text-decoration: none;
 }
 
 .sidebar .sidebar__links:hover {
@@ -151,6 +175,10 @@ body {
       -ms-flex-align: center;
           align-items: center;
   margin: 0 2rem;
+}
+
+.InvListParent__title h1 {
+  margin: 0;
 }
 
 .InvListParent__title span {
@@ -240,5 +268,86 @@ body {
   font-weight: bold;
   font-size: 16px;
   padding-bottom: 5px;
+}
+
+.warehouse__card {
+  background-color: #FFFFFF;
+  border: 1px solid #DEDEDE;
+  border-radius: 2px;
+  padding: 25px 35px;
+  margin: 20px 0;
+}
+
+.warehouse__card .warehouse__name {
+  color: #003B77;
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.warehouse__card .warehouse__details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-weight: 600;
+}
+
+.warehouse__card .warehouse__details .warehouse--black {
+  color: #3A3A3A;
+  margin-bottom: 8px;
+}
+
+.warehouse__card .warehouse__details p {
+  margin: 3px 0;
+  color: #7c7c7c;
+}
+
+.warehouse__add {
+  width: 65px;
+  height: 65px;
+  background-color: #004892;
+  font-size: 40px;
+  font-weight: 500;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  bottom: 60px;
+  right: 100px;
+  border-radius: 50%;
+  border: none;
+  -webkit-box-shadow: 0px 40px 55px 0px #00000026;
+          box-shadow: 0px 40px 55px 0px #00000026;
+  cursor: pointer;
+}
+
+.warehouse__add p {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #FFFFFF;
+}
+
+.warehouse__add:hover {
+  background-color: #003B77;
 }
 /*# sourceMappingURL=index.css.map */

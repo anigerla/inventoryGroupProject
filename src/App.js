@@ -1,31 +1,34 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import './styles/index.css';
-import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from './components/NavBar.js';
 import InventoryDetails from './components/InventoryDetails.js'
-
+import InvList from './components/InvList.js'
 import SideBar from './components/SideBar';
-import MainComponent from './components/MainComponent';
+import WarehouseInventoryList from './components/WarehouseInventoryList';
+import WarehouseList from './components/WarehouseList';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Router>
-          <div className="container">
-            <SideBar/>
-            <Switch> 
-              <Route path='/warehouses'/>
-              <Route path='/inventory' component={MainComponent}/>
-              <Route path='/warehouses/:id'/>
-              <Route path='/inventory/:id' component={InventoryDetails}/>
-              <Route path='/' component={MainComponent}/>
-            </Switch>
+      <Router>
+        <div className="App">
+          <SideBar/>
+            <div className="main">
+              <NavBar/>
+              <Switch> 
+                <Route path='/warehouses/:id' component={WarehouseInventoryList}/>
+                <Route path='/inventory/:id' component={InventoryDetails}/>
+                <Route path='/warehouses' exact component={WarehouseList}/>
+                <Route path='/inventory' component={InvList}/>
+                <Route path='/' component={InvList}/>
+              </Switch>
+            </div>
           </div>
         </Router>
        
-      </div>
+      
     );
   }
 }
