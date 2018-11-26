@@ -17,7 +17,7 @@ class App extends Component {
             <div className="main">
               <NavBar/>
               <Switch> 
-                <Route path='/warehouses/:id' exact component={InvList}/>
+                <Route path='/warehouses/:warehouseId' exact component={InvList}/>
                 <Route path='/inventory/:id' exact component={InventoryDetails}/>
                 <Route path='/warehouses' exact component={WarehouseList}/>
                 <Route path='/inventory' exact component={InvList}/>

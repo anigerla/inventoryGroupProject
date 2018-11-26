@@ -130,7 +130,8 @@ export default class InvList extends Component {
 
     //add conditional render for warehouse inventory 
     let title="Inventory"
-    let paramWHid = this.props.match.params.id;
+    let paramWHid = this.props.match.params.warehouseId;
+    //this if statement will only run when a  
     if(paramWHid){
         //filter out non warehouse specific items
         loadInv= loadInv.filter(item=>{return item.warehouseId=== paramWHid})
