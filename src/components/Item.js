@@ -8,7 +8,7 @@ export default class Item extends Component {
             <tr className="ItemRow">
                 <td>
                     {/* for sprint2 link to each individual item will be added*/}
-                    <Link to={`inventory/${this.props.id}`}> 
+                    <Link to={`/inventory/${this.props.id}`}> 
                         <span>{this.props.prodName}</span>
                     </Link>
                     <span>{this.props.prodDescr}</span>

@@ -175,10 +175,10 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
   .sidebar__logo {
     display: flex;
     justify-content: center;
+    padding: 40px;
     img{
       height: 13px;
       width: 93px;
-      padding: 40px;
       margin-bottom: 80px;
     }
   }
@@ -190,6 +190,7 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
     height: 60px;
     padding: 5px 50px;
     text-decoration: none;
+    margin: 6px 0;
 
     &:hover {
       color:$white;

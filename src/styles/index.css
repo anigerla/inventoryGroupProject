@@ -109,12 +109,12 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding: 40px;
 }
 
 .sidebar .sidebar__logo img {
   height: 13px;
   width: 93px;
-  padding: 40px;
   margin-bottom: 80px;
 }
 
@@ -129,6 +129,7 @@ a {
   height: 60px;
   padding: 5px 50px;
   text-decoration: none;
+  margin: 6px 0;
 }
 
 .sidebar .sidebar__links:hover {
