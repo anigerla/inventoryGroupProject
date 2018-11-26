@@ -10,7 +10,7 @@ export default class SideBar extends Component {
       <aside className="sidebar">
         <Link to="/">
           <div className="sidebar__logo">
-            <img src="/assets/wordmark/Wordmark.svg" alt="" class="logo__img"></img>
+            <img src="/assets/wordmark/Wordmark.svg" alt="" className="logo__img"></img>
           </div>
         </Link>
         <Link to="/">
