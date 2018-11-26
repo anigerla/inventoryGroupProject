@@ -20,7 +20,7 @@ export default class InventoryDetails extends Component {
       "productCategory":"Industrial, Automotive, Heavy Industry",
       "warehouseId": "A4",
       "description":"Here is a more detailed summary of the product name, it’s uses, industries"
-                     +"and possible attributes that could be used to describe the product."
+                     +" and possible attributes that could be used to describe the product. "
   }]
 
   //search items to find correct one to display 

@@ -175,10 +175,10 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
   .sidebar__logo {
     display: flex;
     justify-content: center;
-    img{
+    padding: 40px;
+    .logo__img{
       height: 13px;
       width: 93px;
-      padding: 40px;
       margin-bottom: 80px;
     }
   }
@@ -190,6 +190,7 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
     height: 60px;
     padding: 5px 50px;
     text-decoration: none;
+    margin: 6px 0;
 
     &:hover {
       color:$white;
@@ -393,11 +394,20 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
   border-radius: 2px;
   padding: 25px 35px;
   margin: 20px 0;
+  display: flex;
+  flex-direction: column;
 
+  a{
+    width: fit-content;
+
+  }
   .warehouse__name{
     color: $navy; 
     margin: 0;
     margin-bottom: 12px;
+    &:hover{
+      text-decoration: underline;
+    }
   }
   
   .warehouse__details{

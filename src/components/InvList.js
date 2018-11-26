@@ -152,6 +152,7 @@ export default class InvList extends Component {
                     location={loadInv[i].location}
                     quantity={loadInv[i].quantity}
                     status={loadInv[i].status}
+                    id={loadInv[i].id}
                 />
             itemList.push(oneItem);
         }
