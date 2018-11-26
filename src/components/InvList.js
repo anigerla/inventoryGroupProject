@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Item from './Item';
 
+
 export default class InvList extends Component {
 
     // itemsArray = [
@@ -145,7 +146,7 @@ export default class InvList extends Component {
         let itemList = [];
         for (let i=0; i < loadInv.length; i++) {
             let oneItem = 
-                <Item   
+                <Item id = {loadInv[i].id}  
                     prodName={loadInv[i].productName}
                     prodDescr={loadInv[i].productdescr}
                     lastOrder={loadInv[i].lastOrder}
