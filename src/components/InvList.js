@@ -127,6 +127,21 @@ export default class InvList extends Component {
 
     //loop that goes through each item object in the inventoryData list
     //and passed the elements into relevant slots within the Item component
+
+    //add conditional render for warehouse inventory 
+    let title="Inventory"
+    let paramWHid = this.props.match.params.warehouseId;
+    //this if statement will only run when a  
+    if(paramWHid){
+        //filter out non warehouse specific items
+        loadInv= loadInv.filter(item=>{return item.warehouseId=== paramWHid})
+        // this json load will be a get request sprint 2
+        let WHjson= require('../warehouseData.json');
+        let warehouse= WHjson.find(item=>{return item.warehouseId===paramWHid})
+
+        title = `Inventory at ${warehouse.address.street}, ${warehouse.address.city}`
+
+    }
         let itemList = [];
         for (let i=0; i < loadInv.length; i++) {
             let oneItem = 
@@ -145,7 +160,7 @@ export default class InvList extends Component {
         return (
             <div className="InvListParent">
                 <div className="InvListParent__title">
-                    <h1>Inventory</h1>
+                    <h1>{title}</h1>
                     <span>Filter</span>
                     {/* ideally should have filter functionality */}
                 </div>
