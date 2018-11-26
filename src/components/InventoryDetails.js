@@ -20,13 +20,6 @@ export default class InventoryDetails extends Component {
       "productCategory":"Industrial, Automotive, Heavy Industry",
       "warehouseId": "A4",
       "description":"Here is a more detailed summary of the product name, it’s uses, industries"
-<<<<<<< HEAD
-                     +" and possible attributes that could be used to describe the product. "
-  }]
-||||||| merged common ancestors
-                     +"and possible attributes that could be used to describe the product."
-  }]
-=======
                      +"and possible attributes that could be used to describe the product."
   },
     {
@@ -157,7 +150,6 @@ export default class InventoryDetails extends Component {
       "productCategory":"Industrial, Automotive, Heavy Industry",
     }
 ]    
->>>>>>> development
 
   //search items to find correct one to display 
   let item = items.find(inv=>{return id===inv.id});
