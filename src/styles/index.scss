@@ -1,0 +1,519 @@
+//Solid colors
+$black: #3A3A3A;
+$grey1: #7c7c7c;
+$grey2:#ADADAD ;
+$grey3: #CACACA;
+$grey4:#DEDEDE;
+$grey5: #F7F7F7;
+$white: #FFFFFF;
+$blue: #004892;
+$navy: #003B77;
+
+//font weight 
+$demibold:600;
+$medium:500;
+
+//reduced opacity
+$black60: #00000099;
+$white50: #FFFFFF80;
+$white05: #FFFFFF0D;
+
+// font imports
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('./fonts/AvenirNext-Regular.eot');
+  src: url('./fonts/AvenirNext-Regular.eot?#iefix') format('embedded-opentype'),
+      url('./fonts/AvenirNext-Regular.woff2') format('woff2'),
+      url('./fonts/AvenirNext-Regular.woff') format('woff'),
+      url('./fonts/AvenirNext-Regular.ttf') format('truetype'),
+      url('./fonts/AvenirNext-Regular.svg#AvenirNext-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('./fonts/AvenirNext-DemiBold.eot');
+  src: url('./fonts/AvenirNext-DemiBold.eot?#iefix') format('embedded-opentype'),
+      url('./fonts/AvenirNext-DemiBold.woff2') format('woff2'),
+      url('./fonts/AvenirNext-DemiBold.woff') format('woff'),
+      url('./fonts/AvenirNext-DemiBold.ttf') format('truetype'),
+      url('./fonts/AvenirNext-DemiBold.svg#AvenirNext-DemiBold') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('./fonts/AvenirNext-Medium.eot');
+  src: url('./fonts/AvenirNext-Medium.eot?#iefix') format('embedded-opentype'),
+      url('./fonts/AvenirNext-Medium.woff2') format('woff2'),
+      url('./fonts/AvenirNext-Medium.woff') format('woff'),
+      url('./fonts/AvenirNext-Medium.ttf') format('truetype'),
+      url('./fonts/AvenirNext-Medium.svg#AvenirNext-Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('./fonts/AvenirNext-Italic.eot');
+  src: url('./fonts/AvenirNext-Italic.eot?#iefix') format('embedded-opentype'),
+      url('./fonts/AvenirNext-Italic.woff2') format('woff2'),
+      url('./fonts/AvenirNext-Italic.woff') format('woff'),
+      url('./fonts/AvenirNext-Italic.ttf') format('truetype'),
+      url('./fonts/AvenirNext-Italic.svg#AvenirNext-Italic') format('svg');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('./fonts/AvenirNext-MediumItalic.eot');
+  src: url('./fonts/AvenirNext-MediumItalic.eot?#iefix') format('embedded-opentype'),
+      url('./fonts/AvenirNext-MediumItalic.woff2') format('woff2'),
+      url('./fonts/AvenirNext-MediumItalic.woff') format('woff'),
+      url('./fonts/AvenirNext-MediumItalic.ttf') format('truetype'),
+      url('./fonts/AvenirNext-MediumItalic.svg#AvenirNext-MediumItalic') format('svg');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('./fonts/AvenirNext-DemiBoldItalic.eot');
+  src: url('./fonts/AvenirNext-DemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+      url('./fonts/AvenirNext-DemiBoldItalic.woff2') format('woff2'),
+      url('./fonts/AvenirNext-DemiBoldItalic.woff') format('woff'),
+      url('./fonts/AvenirNext-DemiBoldItalic.ttf') format('truetype'),
+      url('./fonts/AvenirNext-DemiBoldItalic.svg#AvenirNext-DemiBoldItalic') format('svg');
+  font-weight: 600;
+  font-style: italic;
+}
+
+// Font Sizing 
+h1 {
+  font-size: 24px;
+}
+h2 {
+  font-size: 18px;
+}
+h3 {
+  font-size: 16px;
+}
+h4{
+  font-size: 14px;
+}
+
+//button mixins 
+@mixin regularButton {
+  font-family: 'Avenir Next';
+  background-color:$blue;
+  border-radius: 3px; 
+  color:$white; 
+  font-size:14px;
+  font-weight:$medium;
+  line-height:1.4em;
+  letter-spacing: .2px;
+  border:none;
+}
+
+@mixin hoverButton {
+  background-color: $navy; 
+}
+
+//Form field mixin
+@mixin formField {
+  font-family: 'Avenir Next';
+  background-color: $white;
+  border: solid 1px $grey3;
+  border-radius: 2px;
+  font-size:14px;
+  line-height:1.4em;
+}
+@mixin activeFormField {
+  background-color: $grey5;
+  border: solid 1px $blue;
+  border-radius: 2px;
+}
+
+* { 
+  box-sizing: border-box; 
+} 
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Avenir Next';
+  font-size: 12px;
+}
+
+.App {
+  display: flex;
+}
+
+// Main
+
+.main {
+  width: 100%;
+}
+
+
+// ----- SideBar
+a{                        // <Link> shows up as an <a> tag so styling to not be underlined
+  text-decoration: none;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: $navy;
+  min-width: 250px;
+  z-index: 900;
+  min-height: 100vh;
+
+  .sidebar__logo {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    img{
+      height: 13px;
+      width: 93px;
+      margin-bottom: 80px;
+    }
+  }
+
+  .sidebar__links {
+    color: $white50;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 5px 50px;
+    text-decoration: none;
+    margin: 6px 0;
+
+    &:hover {
+      color:$white;
+      background-color: $blue;
+      svg {
+        g {
+          fill: $white
+        }
+      }
+    }
+    svg {
+      margin-right: 30px;
+    }
+    h3 {
+      font-weight: $demibold;
+    }
+  }
+}
+
+// ----- Nav Bar
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.navbar{
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  box-shadow: -1px 2px 12px 2px $grey4;
+  position: relative;
+
+  .navbar__form{
+    input{
+      width: 381px;
+      height: 40px;
+      background-color: $grey5;
+      border: solid 1px $grey3;
+      border-radius: 2px;
+      font-size: 14px;
+      font-family: 'Avenir Next';
+      line-height:1.4em;
+      padding: 0 12px;
+      box-sizing: border-box;
+      font-weight: 500;
+      outline: none;
+      background-image: url('../components/Image Components/Search.svg');
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-position-x: 340px;
+      &::placeholder{
+        color: $grey1;
+      }
+      &:focus{
+        border-color: $blue;
+        color: $black;
+        &::placeholder{
+        color: $black;
+      }
+      }
+    }
+  }
+
+  .navbar__user{
+    display: flex;
+    align-items: center;
+    div{
+      width: 40px;
+      height: 40px;
+      background-color: $grey1;
+      border-radius: 50%;
+    }
+    svg{
+      margin: 0 70px 0 16px;
+      transform: rotate(-90deg);
+      g {
+          fill: $grey2;
+        }
+    }
+  }
+}
+
+//-------------------------------------------------------------------------------------------
+// Inventory List Component Styling starts
+
+.InvListParent {
+  background-color: $grey5;
+  padding: 2rem 3rem;
+  min-height:100vh;
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 2rem;
+
+    h1{
+      margin: 0;
+    }
+
+    & span {
+      color: $navy;
+      font-weight: bold;
+    }
+
+    & span:hover {
+      cursor: pointer;
+      color: $grey1;
+    }
+  }
+
+  & table {
+    width: 100%;
+    border: 1px solid $grey4;
+    border-collapse:collapse; 
+
+    & th, td {
+      padding: 1.5rem;
+    }
+
+    & td:nth-child(n+4), th:nth-child(n+4) {
+      text-align: right;
+    }
+
+    & thead {
+      display: table-header-group;
+    }
+  
+    & .HeaderRow {
+      background-color: $white;
+      text-transform: uppercase;
+      font-size: 14px;
+      text-align: left;
+
+      & th:first-child {
+        text-align: left;
+        width: 33%;
+      }
+
+      & th:last-child {
+        padding-right: 0;
+      }
+    }
+    
+    & tbody tr:nth-child(even) {
+      background-color: $white;
+    }
+
+    & tbody tr:nth-child(odd) {
+      background-color: $grey5;
+    }
+
+    & .ItemRow span:first-child {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    & .ItemRow span:first-child:hover {
+      cursor: pointer;
+      text-decoration: underline;
+      color: $black;
+    }
+
+      & td {
+        font-size: 12px;
+        text-align: left;
+      }
+
+      & td:first-child {
+        width: 33%;
+      }
+
+      & td img:hover {
+        //use Matt's approach to add hover effect
+        cursor: pointer;
+        }
+
+      & td span:first-child {
+        color: $blue;
+        font-weight: bold;
+        font-size: 16px;
+        padding-bottom: 5px;
+      }
+
+    }
+
+    //Dots Icon styling
+    //Fill colour: #3A3A3A
+    //Single Dot Size: 5 x 5 px
+}
+
+// ----- Warehouse List
+
+.warehouse__card{
+  background-color: $white;
+  border: 1px solid $grey4;
+  border-radius: 2px;
+  padding: 25px 35px;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+
+  a{
+    width: fit-content;
+
+  }
+  .warehouse__name{
+    color: $navy; 
+    margin: 0;
+    margin-bottom: 12px;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  
+  .warehouse__details{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-weight: 600;
+    .warehouse--black{
+      color: $black;
+      margin-bottom: 8px;
+    }
+    p{
+      margin: 3px 0;
+      color: $grey1;
+    }
+  }
+}
+.warehouse__add{
+  width: 65px;
+  height: 65px;
+  background-color: $blue;
+  font-size: 40px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 60px;
+  right: 100px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0px 40px 55px 0px #00000026;
+  cursor: pointer;
+  p{
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:$white;
+  }
+  &:hover {
+    background-color: $navy;
+  }
+}
+  //Inventory List Component Styling ends
+
+  //Inventory Details Component Styling 
+  .InvDetailsParent{
+    background-color: $grey5;
+   
+    min-height: 100vh;
+    padding: 2rem 3rem;
+    
+    
+    .detailCard{
+     
+      background-color:$white;
+      border: solid $grey3 1px;
+      padding: 2.8em;
+    
+      .title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        &__name{
+          color:$blue;
+          font-weight: $demibold;
+          display:inline-block;
+          text-align:left;
+        }
+
+        &__newOrderButton{
+          @include regularButton();
+          padding:.8em 2em;
+          display:inline-block;
+          text-align: right;
+        }
+        &__newOrderButton:hover{
+          @include hoverButton();
+          cursor: pointer;
+        }
+      }
+
+      .details{
+        padding:0;
+        list-style-type: none;
+        overflow-wrap: break-word;
+       
+        span{
+          font-weight:$demibold;
+          display: inline-block;
+          vertical-align: top;
+        }
+        .text{
+          display:inline-block;
+          width:45%;
+        }
+        li{
+          margin:2em 0;
+        }
+      }
+  }
+
+  
+
+  }
