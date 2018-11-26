@@ -11,6 +11,7 @@ $navy: #003B77;
 
 //font weight 
 $demibold:600;
+$medium:500;
 
 //reduced opacity
 $black60: #00000099;
@@ -112,7 +113,7 @@ h4{
   border-radius: 3px; 
   color:$white; 
   font-size:14px;
-  font-weight:$demibold;
+  font-weight:$medium;
   line-height:1.4em;
   letter-spacing: .2px;
   border:none;
@@ -442,3 +443,66 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
     background-color: $navy;
   }
 }
+  //Inventory List Component Styling ends
+
+  //Inventory Details Component Styling 
+  .InvDetailsParent{
+    background-color: $grey5;
+   
+    min-height: 100vh;
+    padding: 2rem 3rem;
+    
+    
+    .detailCard{
+     
+      background-color:$white;
+      border: solid $grey3 1px;
+      padding: 2.8em;
+    
+      .title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        &__name{
+          color:$blue;
+          font-weight: $demibold;
+          display:inline-block;
+          text-align:left;
+        }
+
+        &__newOrderButton{
+          @include regularButton();
+          padding:.8em 2em;
+          display:inline-block;
+          text-align: right;
+        }
+        &__newOrderButton:hover{
+          @include hoverButton();
+          cursor: pointer;
+        }
+      }
+
+      .details{
+        padding:0;
+        list-style-type: none;
+        overflow-wrap: break-word;
+       
+        span{
+          font-weight:$demibold;
+          display: inline-block;
+          vertical-align: top;
+        }
+        .text{
+          display:inline-block;
+          width:45%;
+        }
+        li{
+          margin:2em 0;
+        }
+      }
+  }
+
+  
+
+  }

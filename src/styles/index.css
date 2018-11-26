@@ -446,4 +446,76 @@ a {
 .warehouse__add:hover {
   background-color: #003B77;
 }
+
+.InvDetailsParent {
+  background-color: #F7F7F7;
+  min-height: 100vh;
+  padding: 2rem 3rem;
+}
+
+.InvDetailsParent .detailCard {
+  background-color: #FFFFFF;
+  border: solid #CACACA 1px;
+  padding: 2.8em;
+}
+
+.InvDetailsParent .detailCard .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.InvDetailsParent .detailCard .title__name {
+  color: #004892;
+  font-weight: 600;
+  display: inline-block;
+  text-align: left;
+}
+
+.InvDetailsParent .detailCard .title__newOrderButton {
+  font-family: 'Avenir Next';
+  background-color: #004892;
+  border-radius: 3px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4em;
+  letter-spacing: .2px;
+  border: none;
+  padding: .8em 2em;
+  display: inline-block;
+  text-align: right;
+}
+
+.InvDetailsParent .detailCard .title__newOrderButton:hover {
+  background-color: #003B77;
+  cursor: pointer;
+}
+
+.InvDetailsParent .detailCard .details {
+  padding: 0;
+  list-style-type: none;
+  overflow-wrap: break-word;
+}
+
+.InvDetailsParent .detailCard .details span {
+  font-weight: 600;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.InvDetailsParent .detailCard .details .text {
+  display: inline-block;
+  width: 45%;
+}
+
+.InvDetailsParent .detailCard .details li {
+  margin: 2em 0;
+}
 /*# sourceMappingURL=index.css.map */
