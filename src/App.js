@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import './styles/index.css';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import NavBar from './components/NavBar.js';
 import InventoryDetails from './components/InventoryDetails.js'
 import InvList from './components/InvList.js'
@@ -21,7 +21,7 @@ class App extends Component {
                 <Route path='/inventory/:id' exact component={InventoryDetails}/>
                 <Route path='/warehouses' exact component={WarehouseList}/>
                 <Route path='/inventory' exact component={InvList}/>
-                <Route path='/' exact component={InvList}/>
+                <Route path='/' exact render={()=><Redirect to='/inventory'/>}/>
                 {/* Are we adding not found page as well? */}
               </Switch>
             </div>

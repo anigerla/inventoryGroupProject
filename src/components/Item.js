@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 export default class Item extends Component {
     render() {
@@ -7,7 +7,8 @@ export default class Item extends Component {
         return (
             <tr className="ItemRow">
                 <td>
-                    <Link to={"/inventory/B4" }>
+                    {/* for sprint2 link to each individual item will be added*/}
+                    <Link to={`/inventory/${this.props.id}`}> 
                         <span>{this.props.prodName}</span>
                     </Link>
                     <span>{this.props.prodDescr}</span>
