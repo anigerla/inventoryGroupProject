@@ -7,7 +7,7 @@ export default class FilterDots extends Component {
                 <title>Row Menu</title>
                 <desc>Created with Sketch.</desc>
                 <defs></defs>
-                <g id="Styleguide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="Styleguide" stroke="none" strokeWidth="1" fill="none" fillRÇule="evenodd">
                     <g transform="translate(-120.000000, -4672.000000)" fill="#3A3A3A" id="Row-Menu">
                         <g transform="translate(120.000000, 4672.000000)">
                             <circle id="Oval" cx="2.5" cy="2.5" r="2.5"></circle>
