@@ -293,6 +293,8 @@ a {
   width: 100%;
   border: 1px solid #DEDEDE;
   border-collapse: collapse;
+  /* The container <div> - needed to position the dropdown content */
+  /* Dropdown Child container hidden by default */
 }
 
 .InvListParent table th, .InvListParent table td {
@@ -361,14 +363,62 @@ a {
   cursor: pointer;
 }
 
-.InvListParent table td span:first-child {
+.InvListParent table td .prodName {
   color: #004892;
   font-weight: bold;
   font-size: 16px;
   padding-bottom: 5px;
 }
 
-.warehouse__card {
+.InvListParent table .dropdownParent {
+  position: relative;
+}
+
+.InvListParent table .dropdownChild {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  left: -7.5rem;
+  bottom: -5rem;
+  background-color: white;
+  border: 1px solid #DEDEDE;
+}
+
+.InvListParent table .dropdownChild--container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-size: 14px;
+}
+
+.InvListParent table .dropdownChild--container .itemLink:hover {
+  text-decoration: none;
+}
+
+.InvListParent table .dropdownChild--container span {
+  padding: 0.5rem;
+}
+
+.InvListParent table .dropdownChild--container span:hover {
+  background-color: #ddd;
+}
+
+.InvListParent table .dropdownParent:hover .dropdownChild {
+  display: block;
+  cursor: pointer;
+}
+
+.InvListParent .warehouse__card {
   background-color: #FFFFFF;
   border: 1px solid #DEDEDE;
   border-radius: 2px;
@@ -383,23 +433,23 @@ a {
           flex-direction: column;
 }
 
-.warehouse__card a {
+.InvListParent .warehouse__card a {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
 
-.warehouse__card .warehouse__name {
+.InvListParent .warehouse__card .warehouse__name {
   color: #003B77;
   margin: 0;
   margin-bottom: 12px;
 }
 
-.warehouse__card .warehouse__name:hover {
+.InvListParent .warehouse__card .warehouse__name:hover {
   text-decoration: underline;
 }
 
-.warehouse__card .warehouse__details {
+.InvListParent .warehouse__card .warehouse__details {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -411,17 +461,17 @@ a {
   font-weight: 600;
 }
 
-.warehouse__card .warehouse__details .warehouse--black {
+.InvListParent .warehouse__card .warehouse__details .warehouse--black {
   color: #3A3A3A;
   margin-bottom: 8px;
 }
 
-.warehouse__card .warehouse__details p {
+.InvListParent .warehouse__card .warehouse__details p {
   margin: 3px 0;
   color: #7c7c7c;
 }
 
-.warehouse__add {
+.InvListParent .warehouse__add {
   width: 65px;
   height: 65px;
   background-color: #004892;
@@ -446,7 +496,7 @@ a {
   cursor: pointer;
 }
 
-.warehouse__add p {
+.InvListParent .warehouse__add p {
   width: 22px;
   height: 22px;
   margin: 0;
@@ -462,23 +512,23 @@ a {
   color: #FFFFFF;
 }
 
-.warehouse__add:hover {
+.InvListParent .warehouse__add:hover {
   background-color: #003B77;
 }
 
-.InvDetailsParent {
+.InvListParent .InvDetailsParent {
   background-color: #F7F7F7;
   min-height: 100vh;
   padding: 2rem 3rem;
 }
 
-.InvDetailsParent .detailCard {
+.InvListParent .InvDetailsParent .detailCard {
   background-color: #FFFFFF;
   border: solid #CACACA 1px;
   padding: 2.8em;
 }
 
-.InvDetailsParent .detailCard .title {
+.InvListParent .InvDetailsParent .detailCard .title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -490,14 +540,14 @@ a {
           align-items: center;
 }
 
-.InvDetailsParent .detailCard .title__name {
+.InvListParent .InvDetailsParent .detailCard .title__name {
   color: #004892;
   font-weight: 600;
   display: inline-block;
   text-align: left;
 }
 
-.InvDetailsParent .detailCard .title__newOrderButton {
+.InvListParent .InvDetailsParent .detailCard .title__newOrderButton {
   font-family: 'Avenir Next';
   background-color: #004892;
   border-radius: 3px;
@@ -512,29 +562,29 @@ a {
   text-align: right;
 }
 
-.InvDetailsParent .detailCard .title__newOrderButton:hover {
+.InvListParent .InvDetailsParent .detailCard .title__newOrderButton:hover {
   background-color: #003B77;
   cursor: pointer;
 }
 
-.InvDetailsParent .detailCard .details {
+.InvListParent .InvDetailsParent .detailCard .details {
   padding: 0;
   list-style-type: none;
   overflow-wrap: break-word;
 }
 
-.InvDetailsParent .detailCard .details span {
+.InvListParent .InvDetailsParent .detailCard .details span {
   font-weight: 600;
   display: inline-block;
   vertical-align: top;
 }
 
-.InvDetailsParent .detailCard .details .text {
+.InvListParent .InvDetailsParent .detailCard .details .text {
   display: inline-block;
   width: 45%;
 }
 
-.InvDetailsParent .detailCard .details li {
+.InvListParent .InvDetailsParent .detailCard .details li {
   margin: 2em 0;
 }
 /*# sourceMappingURL=index.css.map */

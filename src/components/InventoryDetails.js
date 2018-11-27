@@ -7,7 +7,8 @@ export default class InventoryDetails extends Component {
    //it'll receive a list of items and find the correct one to display 
 
    //items provided by props in sprint2
-   let items = [{
+   let items = [
+     {
       "id": "B4",
       "productName": "Uranium Ore",
       "productdescr": "It's nuclear",
@@ -21,7 +22,7 @@ export default class InventoryDetails extends Component {
       "warehouseId": "A4",
       "description":"Here is a more detailed summary of the product name, it’s uses, industries"
                      +"and possible attributes that could be used to describe the product."
-  },
+    },
     {
         id: "B0",
         productName: "Blob",
@@ -176,3 +177,5 @@ export default class InventoryDetails extends Component {
     )
   }
 }
+
+

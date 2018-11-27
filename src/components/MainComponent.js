@@ -13,8 +13,10 @@ export default class MainComponent extends Component {
 
   // componentDidMount {
   //   fetch get request for InvList data
-  //   fet get request for WarehouseList data
+  //   fetch get request for WarehouseList data
   // }
+
+  // object.onclick = function() { my_script };
 
   render() {
     return (
