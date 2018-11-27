@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class InventoryDetails extends Component {
   render() {
 
-   let {id}= this.props.match.params;
+   let {id}= this.props;
    //it'll receive a list of items and find the correct one to display 
 
    //items provided by props in sprint2
