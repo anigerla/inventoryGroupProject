@@ -1,11 +1,12 @@
 // initialising required elements for the server function
 const express = require('express');
 const app = express();
-const BodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
 // importing data from other components
 const warehouseData = require('./warehouseData');
 const inventoryData = require('./inventoryData');
+const inventoryDetail = require('./inventoryDetails');
 
 // displays html code on the page
 app.use(express.static('public'));
@@ -28,6 +29,22 @@ app.use(bodyParser.json());
     //Body Parser code ends
  //middleware functions end
 //-----------------------------------------------------------------------------------------------------
+
+//get request to return all inventory items 
+app.get('/inventory', (req,res)=>{
+    res.json(inventoryData);
+});
+
+//get request for specific inventory item 
+//incomplete
+// app.get('/inventory/:id',(req,res)=>{
+//     let details = inventoryDetail.find(item=>{ return item.id===req.params.id});
+//     if(details){
+//         res.json(details);
+//     }else{
+//         res.status(404).send('Inventory Item Could not be Found');
+//     }
+// });
 
 // code to start the server
 app.listen(8080, (err) => {
