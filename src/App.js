@@ -9,7 +9,7 @@ import SideBar from './components/SideBar';
 import WarehouseList from './components/WarehouseList';
 const serverURL = 'http://localhost:8080/';
 const inventoryEP = 'inventory/';
-const warehouseEP = 'warehouse/';
+const warehouseEP = 'warehouses/';
 
 
 class App extends Component {
