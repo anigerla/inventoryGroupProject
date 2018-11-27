@@ -33,7 +33,7 @@ class App extends Component {
               <NavBar/>
               <Switch> 
                 <Route path='/warehouses/:warehouseId' exact render={(props)=><InvList itemsArray={this.state.allInv}
-                                                            id={props.match.params.warehouseId}/>}/>
+                                                            warehouseId={props.match.params.warehouseId}/>}/>
                 <Route path='/inventory/:id' exact render={(props)=><InventoryDetails itemsArray={this.state.allInv}
                                                             id={props.match.params.id}/>}/>
                 <Route path='/warehouses' exact component={WarehouseList}/>
