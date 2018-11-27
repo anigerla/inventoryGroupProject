@@ -1,9 +1,26 @@
 import React, { Component } from 'react'
 import List1 from '../warehouseData.json'
 import { Link } from 'react-router-dom';
+import AddWarehouse from './AddWarehouse';
 
 export default class WarehouseList extends Component {
-	
+	state = {
+		showPopup: false
+	}
+
+	displayPopup = () => {
+		if(this.state.showPopup){
+			console.log("changing to false")
+			this.setState({
+				showPopup: false
+			})
+		} else{
+			console.log("changing to true")
+			this.setState({
+				showPopup: true
+			})
+		}
+	}
 
   render() {
     return (
@@ -39,9 +56,10 @@ export default class WarehouseList extends Component {
 						</div>
 					})
 				}
-				<div className="warehouse__add">
+				<div onClick={this.displayPopup} className="warehouse__addBtn">
 					<p>+</p>
 				</div>
+				<AddWarehouse show={this.state.showPopup} displayPopup={this.displayPopup} postWarehouse={this.props.postWarehouse}/>
       </div>
     )
   }

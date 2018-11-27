@@ -98,7 +98,7 @@ a {
           flex-direction: column;
   background-color: #003B77;
   min-width: 250px;
-  z-index: 900;
+  z-index: 80;
   min-height: 100vh;
 }
 
@@ -404,7 +404,7 @@ a {
   color: #7c7c7c;
 }
 
-.warehouse__add {
+.warehouse__addBtn {
   width: 65px;
   height: 65px;
   background-color: #004892;
@@ -429,7 +429,7 @@ a {
   cursor: pointer;
 }
 
-.warehouse__add p {
+.warehouse__addBtn p {
   width: 22px;
   height: 22px;
   margin: 0;
@@ -445,8 +445,152 @@ a {
   color: #FFFFFF;
 }
 
-.warehouse__add:hover {
+.warehouse__addBtn:hover {
   background-color: #003B77;
+}
+
+.warehouse__blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000099;
+  z-index: 980;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.warehouse__add {
+  position: absolute;
+  background-color: #FFFFFF;
+  width: 50%;
+  height: 90%;
+  padding: 20px 60px;
+  border-radius: 3px;
+  border: 1px solid #ADADAD;
+}
+
+.warehouse__add h1 {
+  font-weight: 500;
+}
+
+.warehouse__add form label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-weight: 500;
+}
+
+.warehouse__add form label input, .warehouse__add form label select {
+  font-family: 'Avenir Next';
+  width: 238px;
+  height: 40px;
+  background-color: #FFFFFF;
+  border: solid 1px #CACACA;
+  border-radius: 2px;
+  font-size: 14px;
+  line-height: 1.4em;
+  padding: 15px 14px;
+  outline: none;
+  margin: 5px 0 15px 0;
+}
+
+.warehouse__add form label input:focus, .warehouse__add form label select:focus {
+  background-color: #F7F7F7;
+  border: solid 1px #004892;
+  border-radius: 2px;
+}
+
+.warehouse__add form .add__warehouseName {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.warehouse__add form .add__warehouseDetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 20px 0 30px;
+}
+
+.warehouse__add form .add__warehouseDetails .add__address, .warehouse__add form .add__warehouseDetails .add__contactInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.warehouse__add form .add__warehouseDetails .add__address h4, .warehouse__add form .add__warehouseDetails .add__contactInfo h4 {
+  margin: 15px 0;
+}
+
+.warehouse__add form #addWarehouseBtn {
+  font-family: 'Avenir Next';
+  background-color: #004892;
+  border-radius: 3px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4em;
+  letter-spacing: .2px;
+  border: none;
+  width: 131px;
+  height: 38px;
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.warehouse__add form #addWarehouseBtn:hover {
+  background-color: #003B77;
+}
+
+.warehouse__add .add__warehouse--close {
+  position: absolute;
+  top: 18px;
+  right: 40px;
+  cursor: pointer;
+}
+
+.warehouse__add .add__warehouse--close svg {
+  margin-left: 8px;
+}
+
+.warehouse__add .add__warehouse--close p {
+  margin: 0;
+  font-weight: 500;
+  color: #ADADAD;
+}
+
+.warehouse__add .add__warehouse--close:hover p {
+  color: #3A3A3A;
+}
+
+.warehouse__add .add__warehouse--close:hover svg g {
+  fill: #3A3A3A;
 }
 
 .InvDetailsParent {
@@ -486,10 +630,13 @@ a {
   border-radius: 3px;
   color: #FFFFFF;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.4em;
   letter-spacing: .2px;
   border: none;
+  width: 131px;
+  height: 38px;
+  padding: 0 20px;
   padding: .8em 2em;
   display: inline-block;
   text-align: right;

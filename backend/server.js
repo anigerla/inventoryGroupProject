@@ -1,8 +1,6 @@
-// initialising required elements for the server function
 const express = require('express');
 const app = express();
-const BodyParser = require('body-parser');
-
+const bodyParser = require('body-parser')
 // importing data from other components
 const warehouseData = require('./warehouseData');
 const inventoryData = require('./inventoryData');
@@ -29,10 +27,37 @@ app.use(bodyParser.json());
  //middleware functions end
 //-----------------------------------------------------------------------------------------------------
 
-// code to start the server
-app.listen(8080, (err) => {
-    if (err) {
-        return console.error(err);
+
+app.post("/warehouses/", (req, res) => {
+    // deconstruct elements from req.body
+    const { warehouseName, street, city, country, zipcode, nameTitle, phone, email, invType} = req.body
+    // create a new object to be push into dara array
+    let newWarehouse = {
+        warehouseId: "A" + (warehouseData.length + 1),
+        warehouseName: warehouseName,
+        address:
+        {
+            street: street,
+            city: city,
+            zipcode: zipcode,
+            country: country
+        },
+        contact:
+        {
+            nameTitle: nameTitle,
+            phone: phone,
+            email: email
+        },
+        invType: invType
     }
-    console.log("Choo choo at 8080");
+    // push new object into data array
+    warehouseData.push(newWarehouse)
+    // send back new warehouse object
+    res.json(newWarehouse)
 })
+
+
+// code to start the server
+app.listen('8080', () => {
+    console.log("choo choo at 8080")
+});
