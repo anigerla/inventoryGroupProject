@@ -11,22 +11,12 @@ export default class AddWarehouse extends Component {
 	submitWarehouse = (e) => {
 		// prevent default behaviour of reload
 		e.preventDefault();
-		// creating a new object using the values from the form
-		let newWarehouse = {
-			warehouseName: e.target.warehouse.value,
-			street: e.target.street.value,
-			city: e.target.city.value,
-			country: e.target.country.value,
-			zipcode: e.target.zipcode.value,
-			nameTitle: e.target.manager.value + ", Warehouse Manager",
-			phone: e.target.phone.value,
-			email: e.target.email.value,
-			invType: e.target.inventory.value
-		}
+		
 		// Calling the postWarehouse Function/Method that has been passed down as a prop from App.js
-		this.props.postWarehouse(newWarehouse)
+		this.props.postWarehouse(this.props.warehouseInputs)
+
 		// clearing the input fields of the form
-		e.target.reset()
+		this.props.reset();
 	}
 
   render() {
@@ -36,6 +26,13 @@ export default class AddWarehouse extends Component {
 		} else{
 			showPopup = {display: "none"}
 		}
+		let {warehouseName,street,city,zipcode,nameTitle,phone,email} = this.props.warehouseInputs
+		let isEnabled;
+		if (warehouseName !== "" && street !== "" && city !== "" && zipcode !== "" && nameTitle !== "" && phone !== "" && email !== ""){
+			isEnabled = false
+		} else{
+			isEnabled = true
+		}
     return (
     	<div className="warehouse__blur" style={showPopup}>
 				<div className="warehouse__add">
@@ -43,7 +40,7 @@ export default class AddWarehouse extends Component {
 					<form onSubmit={this.submitWarehouse} ref={this.addNewWarehouse}>
 						<label className="add__warehouseName">
 								Warehouse Name
-								<input type="text" name="warehouse" onChange={this.props.watch} value={this.props.warehouseInputs.warehouseName}></input>
+								<input type="text" name="warehouseName" onChange={this.props.watch} value={this.props.warehouseInputs.warehouseName}></input>
 						</label>
 						<div className="add__warehouseDetails">
 							<div className="add__address">
@@ -54,11 +51,11 @@ export default class AddWarehouse extends Component {
 								</label>
 								<label>
 									City
-										<input type="text" name="city" required></input>
+										<input type="text" name="city" onChange={this.props.watch} value={this.props.warehouseInputs.city}></input>
 								</label>
 								<label>
 									Country
-										<select type="text" name="country">
+										<select type="text" name="country" onChange={this.props.watch} value={this.props.warehouseInputs.country}>
 											<option value="Australia">Australia</option>
 											<option value="Canada">Canada</option>
 											<option value="Mexico">Mexico</option>
@@ -67,26 +64,26 @@ export default class AddWarehouse extends Component {
 								</label>
 								<label>
 									Postal Code
-										<input type="text" name="zipcode" required></input>
+										<input type="text" name="zipcode" onChange={this.props.watch} value={this.props.warehouseInputs.zipcode}></input>
 								</label>
 							</div>
 							<div className="add__contactInfo">
 								<h4>Contact Information</h4>
 								<label>
 									Warehouse Manager's Name
-										<input type="text" name="manager" required></input>
+										<input type="text" name="nameTitle" onChange={this.props.watch} value={this.props.warehouseInputs.nameTitle}></input>
 								</label>
 								<label>
 									Phone Number
-										<input type="tel" name="phone" required></input>
+										<input type="tel" name="phone" onChange={this.props.watch} value={this.props.warehouseInputs.phone}></input>
 								</label>
 								<label>
 									Email Address
-										<input type="email" name="email" required></input>
+										<input type="email" name="email" onChange={this.props.watch} value={this.props.warehouseInputs.email}></input>
 								</label>
 								<label>
 									Inventory Type
-										<select type="text" name="inventory">
+										<select type="text" name="invType" onChange={this.props.watch} value={this.props.warehouseInputs.invType}>
 										<option value="Automotive">Automotive</option>
 										<option value="HeavyIndustry">Heavy Industry</option>
 										<option value="Industrial">Industrial</option>
@@ -94,7 +91,7 @@ export default class AddWarehouse extends Component {
 								</label>
 							</div>
 						</div>
-						<input id="addWarehouseBtn" type="submit" value="Save Location	" />
+					<input id="addWarehouseBtn" type="submit" value="Save Location" disabled={isEnabled} />
 					</form>
 					<div onClick={this.props.displayPopup} className="add__warehouse--close">
 						<Close/>

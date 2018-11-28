@@ -523,8 +523,12 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
       display: flex;
       margin-left: auto;
       cursor: pointer;
+      opacity: 1;
       &:hover{
         @include hoverButton()
+      }
+      &:disabled{
+        opacity: 0.5;
       }
     }
   }
