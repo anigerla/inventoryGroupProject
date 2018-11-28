@@ -2,97 +2,91 @@
 import React, { Component } from 'react';
 import Item from './Item';
 
+const serverURL = 'http://localhost:8080/';
+const warehousesEP = 'warehouses/';
 
 export default class InvList extends Component {
 
-    // itemsArray = [
-    //     {
-    //         id: "B0",
-    //         productName: "Blob",
-    //         productdescr: "It's a blob",
-    //         lastOrder: "05/24/2018",
-    //         location: "Thunder Bay",
-    //         quantity: 1,
-    //         status: "In Stock",
-    //         warehouseId: "A4"
-    //     },
+    componentDidMount(){
+    //only fetches if there is an warehouseId, otherwise use the items passed through param
+        if(this.props.warehouseId){
+            fetch(`${serverURL}${warehousesEP}${this.props.warehouseId}`)
+                .then(res=>res.json())
+                .then(data=>this.setState({warehouseInv:data.items
+                                            ,address:data.address
+                                             }));
+        }
+    }
 
-    //     {
-    //         "id": "B1",
-    //         "productName": "The Mountain Three Wolf Moon Short Sleeve Tee",
-    //         "productdescr": "It's a t-shirt",
-    //         "lastOrder": "05/24/2018",
-    //         "location": "Thunder Bay",
-    //         "quantity": "537",
-    //         "status": "In Stock",
-    //         "warehouseId": "A1"
-    //     },
-    // ]
+    //the state tracks only warehouse specific inv that is fetched
+    state={
+        warehouseInv:[],
+        //boolean that shows whether to make additional request 
+        address:{}
+    }
 
     render() {  
 
     //these variables will be used when state is introduced and static data is changed to dynamic
     //please, do not remove    
-        let loadInv = this.props.itemsArray;
-        // let loadInv = itemsArray;
+    let loadInv = this.props.itemsArray;
+
+
+
+    //add conditional render for warehouse inventory 
+    let title="Inventory";
+    //warehouseid, if defined is provided by props 
+    let paramWHid = this.props.warehouseId;
+    //this if statement will only run when a warehouseId is provided by App through props 
+    if(paramWHid && Object.values(this.state.address).length>0){
+        //if the paramWHid and address exist, means we want to load from state instead of parent props
+        loadInv= this.state.warehouseInv;
+        title = `Inventory at ${this.state.address.street}, ${this.state.address.city}`
+
+    }
 
     //loop that goes through each item object in the inventoryData list
     //and passed the elements into relevant slots within the Item component
-
-    //add conditional render for warehouse inventory 
-    let title="Inventory"
-    let paramWHid = this.props.warehouseId;
-    //this if statement will only run when a  
-    if(paramWHid){
-        //filter out non warehouse specific items
-        loadInv= loadInv.filter(item=>{return item.warehouseId=== paramWHid})
-        // this json load will be a get request sprint 2
-        let WHjson= require('../warehouseData.json');
-        let warehouse= WHjson.find(item=>{return item.warehouseId===paramWHid})
-
-        title = `Inventory at ${warehouse.address.street}, ${warehouse.address.city}`
-
+    let itemList = [];
+    for (let i=0; i < loadInv.length; i++) {
+        let oneItem = 
+            <Item id = {loadInv[i].id}  
+                prodName={loadInv[i].productName}
+                prodDescr={loadInv[i].productdescr}
+                lastOrder={loadInv[i].lastOrder}
+                location={loadInv[i].location}
+                quantity={loadInv[i].quantity}
+                status={loadInv[i].status}
+                key={loadInv[i].id}
+            />
+        itemList.push(oneItem);
     }
-        let itemList = [];
-        for (let i=0; i < loadInv.length; i++) {
-            let oneItem = 
-                <Item id = {loadInv[i].id}  
-                    prodName={loadInv[i].productName}
-                    prodDescr={loadInv[i].productdescr}
-                    lastOrder={loadInv[i].lastOrder}
-                    location={loadInv[i].location}
-                    quantity={loadInv[i].quantity}
-                    status={loadInv[i].status}
-                    key={loadInv[i].id}
-                />
-            itemList.push(oneItem);
-        }
 
 
-        return (
-            <div className="InvListParent">
-                <div className="InvListParent__title">
-                    <h1>{title}</h1>
-                    <span>Filter</span>
-                    {/* ideally should have filter functionality */}
-                </div>
-                <table>
-                    <thead>
-                        <tr className="HeaderRow">
-                            <th>Item</th>
-                            <th>Last Ordered</th>
-                            <th>Location</th>
-                            <th>Quantity</th>
-                            <th>Status</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {itemList}
-                    </tbody>
-                </table>
+    return (
+        <div className="InvListParent">
+            <div className="InvListParent__title">
+                <h1>{title}</h1>
+                <span>Filter</span>
+                {/* ideally should have filter functionality */}
             </div>
-        )
+            <table>
+                <thead>
+                    <tr className="HeaderRow">
+                        <th>Item</th>
+                        <th>Last Ordered</th>
+                        <th>Location</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {itemList}
+                </tbody>
+            </table>
+        </div>
+    )
     }
 }
 
