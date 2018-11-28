@@ -29,101 +29,11 @@ export default class InvList extends Component {
     //     },
     // ]
 
-    render() {
-
-        let loadInv = [
-            {
-                id: "B0",
-                productName: "Blob",
-                productdescr: "It's a blob",
-                lastOrder: "05/24/2018",
-                location: "Thunder Bay",
-                quantity: 1,
-                status: "In Stock",
-                warehouseId: "A4"
-            },
-
-            {
-                id: "B1",
-                productName: "The Mountain Three Wolf Moon Short Sleeve Tee",
-                productdescr: "It's a t-shirt",
-                lastOrder: "05/24/2018",
-                location: "Thunder Bay",
-                quantity: 537,
-                status: "In Stock",
-                warehouseId: "A1"
-            },
-
-            {
-                id: "B2",
-                productName: "Hutzler 571 Banana Slicer",
-                productdescr: "It's a banana slicer",
-                lastOrder: "05/24/2018",
-                location: "Thunder Bay",
-                quantity: 9,
-                status: "In Stock",
-                warehouseId: "A3"
-            },
-
-            {
-                id: "B3",
-                productName: "BIC Cristal For Her Ball Pen",
-                productdescr: "It's a pineapple pen",
-                lastOrder: "05/24/2018",
-                location: "Thunder Bay",
-                quantity: 10000,
-                status: "In Stock",
-                warehouseId: "A2"
-            },
-
-            {
-                id: "B4",
-                productName: "Uranium Ore",
-                productdescr: "It's nuclear",
-                lastOrder: "05/24/2018",
-                location: "Thunder Bay",
-                quantity: 0.5,
-                status: "In Stock",
-                warehouseId: "A4"
-            },
-
-            {
-                id: "B5",
-                productName: "How to Avoid Huge Ships",
-                productdescr: "It's a book",
-                lastOrder: "05/24/2018",
-                location: "Thunder Bay",
-                quantity: 20,
-                status: "In Stock",
-                warehouseId: "A2"
-            },
-
-            {
-                id: "B6",
-                productName: "Looking For-Best of David Hasselhoff",
-                productdescr: "It's a music CD",
-                lastOrder: "05/24/2018",
-                location: "Thunder Bay",
-                quantity: 56,
-                status: "In Stock",
-                warehouseId: "A3"
-            },
-
-            {
-                id: "B7",
-                productName: "The 2009-2014 Outlook for Wood Toilet Seats in Greater China",
-                productdescr: "It's a map",
-                lastOrder: "05/24/2018",
-                location: "Thunder Bay",
-                quantity: 34,
-                status: "In Stock",
-                warehouseId: "A1"
-            }
-    ]    
+    render() {  
 
     //these variables will be used when state is introduced and static data is changed to dynamic
     //please, do not remove    
-        // let loadInv = this.props.itemsArray;
+        let loadInv = this.props.itemsArray;
         // let loadInv = itemsArray;
 
     //loop that goes through each item object in the inventoryData list
@@ -131,7 +41,7 @@ export default class InvList extends Component {
 
     //add conditional render for warehouse inventory 
     let title="Inventory"
-    let paramWHid = this.props.match.params.warehouseId;
+    let paramWHid = this.props.warehouseId;
     //this if statement will only run when a  
     if(paramWHid){
         //filter out non warehouse specific items
@@ -153,6 +63,7 @@ export default class InvList extends Component {
                     location={loadInv[i].location}
                     quantity={loadInv[i].quantity}
                     status={loadInv[i].status}
+                    key={loadInv[i].id}
                 />
             itemList.push(oneItem);
         }

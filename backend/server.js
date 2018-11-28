@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+
 // importing data from other components
 const warehouseData = require('./warehouseData');
 const inventoryData = require('./inventoryData');
+const inventoryDetail = require('./inventoryDetails');
 
 // displays html code on the page
 app.use(express.static('public'));
@@ -28,9 +30,25 @@ app.use(bodyParser.json());
 //-----------------------------------------------------------------------------------------------------
 
 
+//get request to return all inventory items 
+app.get('/inventory', (req,res)=>{
+    res.json(inventoryData);
+});
+
+//get request for specific inventory item 
+//incomplete
+// app.get('/inventory/:id',(req,res)=>{
+//     let details = inventoryDetail.find(item=>{ return item.id===req.params.id});
+//     if(details){
+//         res.json(details);
+//     }else{
+//         res.status(404).send('Inventory Item Could not be Found');
+//     }
+// });
+
 app.post("/warehouses/", (req, res) => {
     // deconstruct elements from req.body
-    const { warehouseName, street, city, country, zipcode, nameTitle, phone, email, invType} = req.body
+    const { warehouseName, street, city, country, zipcode, nameTitle, phone, email, invType } = req.body
     // create a new object to be push into dara array
     let newWarehouse = {
         warehouseId: "A" + (warehouseData.length + 1),
@@ -54,10 +72,11 @@ app.post("/warehouses/", (req, res) => {
     warehouseData.push(newWarehouse)
     // send back new warehouse object
     res.json(newWarehouse)
-})
-
+});
 
 // code to start the server
-app.listen('8080', () => {
-    console.log("choo choo at 8080")
-});
+app.listen(8080, (err) => {
+    if (err) {
+        return console.error(err);
+    }
+})

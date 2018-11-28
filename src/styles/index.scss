@@ -400,11 +400,20 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
   border-radius: 2px;
   padding: 25px 35px;
   margin: 20px 0;
+  display: flex;
+  flex-direction: column;
 
+  a{
+    width: fit-content;
+
+  }
   .warehouse__name{
     color: $navy; 
     margin: 0;
     margin-bottom: 12px;
+    &:hover{
+      text-decoration: underline;
+    }
   }
   
   .warehouse__details{
