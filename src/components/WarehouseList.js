@@ -22,9 +22,20 @@ export default class WarehouseList extends Component {
 	// watching inputs and updating state with every key pressed
 	watchingFormInputs = (e) => {
 		if (e.target.name === "warehouse") {
-			
+			let newWarehouse = { ...this.state.newWarehouse, warehouseName: e.target.value}
+			this.setState({
+				newWarehouse
+			})
 		} else if (e.target.name === "street") {
-			console.log("street")
+			let newWarehouse = { ...this.state.newWarehouse, street: e.target.value}
+			this.setState({
+				newWarehouse
+			})
+		} else if (e.target.name === "city") {
+			let newWarehouse = { ...this.state.newWarehouse, city: e.target.value }
+			this.setState({
+				newWarehouse
+			})
 		}
 	}
 
