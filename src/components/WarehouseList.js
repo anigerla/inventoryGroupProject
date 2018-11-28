@@ -21,22 +21,26 @@ export default class WarehouseList extends Component {
 
 	// watching inputs and updating state with every key pressed
 	watchingFormInputs = (e) => {
-		if (e.target.name === "warehouse") {
-			let newWarehouse = { ...this.state.newWarehouse, warehouseName: e.target.value}
-			this.setState({
-				newWarehouse
-			})
-		} else if (e.target.name === "street") {
-			let newWarehouse = { ...this.state.newWarehouse, street: e.target.value}
-			this.setState({
-				newWarehouse
-			})
-		} else if (e.target.name === "city") {
-			let newWarehouse = { ...this.state.newWarehouse, city: e.target.value }
-			this.setState({
-				newWarehouse
-			})
-		}
+		let newWarehouse = { ...this.state.newWarehouse, [e.target.name]: e.target.value}
+		this.setState({
+			newWarehouse
+		})
+	}
+	// resetting state once form submitted
+	resetNewWarehouse = () => {
+		this.setState({
+			newWarehouse: {
+				warehouseName: "",
+				street: "",
+				city: "",
+				country: "",
+				zipcode: "",
+				nameTitle: "",
+				phone: "",
+				email: "",
+				invType: ""
+			}
+		})
 	}
 
 	// Function to show the AddWarehouse component
@@ -89,7 +93,7 @@ export default class WarehouseList extends Component {
 				<div onClick={this.displayPopup} className="warehouse__addBtn">
 					<p>+</p>
 				</div>
-				<AddWarehouse show={this.state.showPopup} displayPopup={this.displayPopup} postWarehouse={this.props.postWarehouse} warehouseInputs={this.state.newWarehouse} watch={this.watchingFormInputs}/>
+				<AddWarehouse show={this.state.showPopup} displayPopup={this.displayPopup} postWarehouse={this.props.postWarehouse} warehouseInputs={this.state.newWarehouse} watch={this.watchingFormInputs} reset={this.resetNewWarehouse}/>
       </div>
     )
   }

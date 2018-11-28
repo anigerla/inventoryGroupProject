@@ -579,10 +579,15 @@ a {
   display: flex;
   margin-left: auto;
   cursor: pointer;
+  opacity: 1;
 }
 
 .warehouse__add form #addWarehouseBtn:hover {
   background-color: #003B77;
+}
+
+.warehouse__add form #addWarehouseBtn:disabled {
+  opacity: 0.5;
 }
 
 .warehouse__add .add__warehouse--close {

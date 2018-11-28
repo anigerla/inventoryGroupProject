@@ -19,7 +19,6 @@ class App extends Component {
 
   postWarehouse = (warehouseObject) => {
     //taking in a warehouse object that is sent from the AddWarehouse Component
-    console.log(warehouseObject)
     const init = {
       body: JSON.stringify(warehouseObject),
       method: 'POST',
