@@ -37,14 +37,14 @@ app.get('/inventory', (req,res)=>{
 
 //get request for specific inventory item 
 //incomplete
-// app.get('/inventory/:id',(req,res)=>{
-//     let details = inventoryDetail.find(item=>{ return item.id===req.params.id});
-//     if(details){
-//         res.json(details);
-//     }else{
-//         res.status(404).send('Inventory Item Could not be Found');
-//     }
-// });
+app.get('/inventory/:id',(req,res)=>{
+    let details = inventoryDetail.find(item=>{ return item.id===req.params.id});
+    if(details){
+        res.json(details);
+    }else{
+        res.status(404).send('Inventory Item Could not be Found');
+    }
+});
 
 app.post("/warehouses/", (req, res) => {
     // deconstruct elements from req.body

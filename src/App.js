@@ -54,8 +54,10 @@ class App extends Component {
               <Switch> 
                 <Route path='/warehouses/:warehouseId' exact render={(props)=><InvList itemsArray={this.state.allInv}
                                                             warehouseId={props.match.params.warehouseId}/>}/>
-                <Route path='/inventory/:id' exact render={(props)=><InventoryDetails itemsArray={this.state.allInv}
-                                                            id={props.match.params.id}/>}/>
+                <Route path='/inventory/:id' exact render={(props)=>{
+                  let targetItem = this.state.allInv.find(inv=>inv.id===props.match.params.id);
+                  return <InventoryDetails item={targetItem}id={props.match.params.id}/>}}/>
+                                                            
                 <Route path='/warehouses' exact render={(props) => { return <WarehouseList {...props} postWarehouse={this.postWarehouse} /> }} />
                 <Route path='/inventory' exact render={()=>{return <InvList itemsArray={this.state.allInv}/>}}/>
                 <Route path='/' exact render={()=><Redirect to='/inventory'/>}/>
