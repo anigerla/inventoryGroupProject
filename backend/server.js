@@ -46,6 +46,18 @@ app.get('/inventory/:id',(req,res)=>{
     }
 });
 
+//needs to return warehouse address as well 
+app.get('/warehouses/:id',(req,res)=>{
+    let warehouseArray = inventoryData.filter(item=>{ return item.warehouseId===req.params.id});
+    let warehouse = warehouseData.find(item=>{return item.warehouseId ===req.params.id})
+    if(warehouseArray.length>0){
+        res.json( { address:warehouse.address,
+                 items:warehouseArray});
+    }else{
+        res.status(404).json('Warehouse does not have specific inventory');
+    }
+});
+
 app.post("/warehouses/", (req, res) => {
     // deconstruct elements from req.body
     const { warehouseName, street, city, country, zipcode, nameTitle, phone, email, invType } = req.body
