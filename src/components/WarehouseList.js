@@ -5,17 +5,36 @@ import AddWarehouse from './AddWarehouse';
 
 export default class WarehouseList extends Component {
 	state = {
-		showPopup: false
+		showPopup: false,
+		newWarehouse: {
+			warehouseName: "",
+			street: "",
+			city: "",
+			country: "",
+			zipcode: "",
+			nameTitle: "",
+			phone: "",
+			email: "",
+			invType: ""
+		}
 	}
 
+	// watching inputs and updating state with every key pressed
+	watchingFormInputs = (e) => {
+		if (e.target.name === "warehouse") {
+			
+		} else if (e.target.name === "street") {
+			console.log("street")
+		}
+	}
+
+	// Function to show the AddWarehouse component
 	displayPopup = () => {
 		if(this.state.showPopup){
-			console.log("changing to false")
 			this.setState({
 				showPopup: false
 			})
 		} else{
-			console.log("changing to true")
 			this.setState({
 				showPopup: true
 			})
@@ -59,7 +78,7 @@ export default class WarehouseList extends Component {
 				<div onClick={this.displayPopup} className="warehouse__addBtn">
 					<p>+</p>
 				</div>
-				<AddWarehouse show={this.state.showPopup} displayPopup={this.displayPopup} postWarehouse={this.props.postWarehouse}/>
+				<AddWarehouse show={this.state.showPopup} displayPopup={this.displayPopup} postWarehouse={this.props.postWarehouse} warehouseInputs={this.state.newWarehouse} watch={this.watchingFormInputs}/>
       </div>
     )
   }
