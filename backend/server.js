@@ -78,5 +78,7 @@ app.post("/warehouses/", (req, res) => {
 app.listen(8080, (err) => {
     if (err) {
         return console.error(err);
+    } else{
+        console.log("choo choo on 8080")
     }
 })

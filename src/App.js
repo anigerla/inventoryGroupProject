@@ -13,7 +13,9 @@ const warehouseEP = 'warehouses/';
 
 
 class App extends Component {
-<<<<<<< HEAD
+  state = {
+    allInv: []
+  }
 
   postWarehouse = (warehouseObject) => {
     //taking in a warehouse object that is sent from the AddWarehouse Component
@@ -25,7 +27,7 @@ class App extends Component {
         'content-type': 'application/json'
       }
     };
-    fetch("http://localhost:8080/warehouses/", init)
+    fetch(`${serverURL}${warehouseEP}`, init)
       .then((resp) => resp.json())
       .then((data) => {
         // call GET for new data once set up
@@ -34,13 +36,6 @@ class App extends Component {
       .catch((err) => { console.error("Caught error: ", err) });
   }
 
-
-||||||| merged common ancestors
-=======
-
-  state={
-    allInv:[]
-  }
   componentDidMount(){
     fetch(`${serverURL}${inventoryEP}`)
       .then(res=>res.json())
@@ -48,7 +43,7 @@ class App extends Component {
       .catch(err=>console.log(err));
     console.log('mounted');
   }
->>>>>>> development
+
   render() {
     return (
       <Router>
@@ -57,24 +52,12 @@ class App extends Component {
             <div className="main">
               <NavBar/>
               <Switch> 
-<<<<<<< HEAD
-                <Route path='/warehouses/:warehouseId' exact component={InvList}/>
-                <Route path='/inventory/:id' exact component={InventoryDetails}/>
-                <Route path='/warehouses' exact render={(props) => { return <WarehouseList {...props} postWarehouse={this.postWarehouse}/>}} />
-                <Route path='/inventory' exact component={InvList}/>
-||||||| merged common ancestors
-                <Route path='/warehouses/:warehouseId' exact component={InvList}/>
-                <Route path='/inventory/:id' exact component={InventoryDetails}/>
-                <Route path='/warehouses' exact component={WarehouseList}/>
-                <Route path='/inventory' exact component={InvList}/>
-=======
                 <Route path='/warehouses/:warehouseId' exact render={(props)=><InvList itemsArray={this.state.allInv}
                                                             warehouseId={props.match.params.warehouseId}/>}/>
                 <Route path='/inventory/:id' exact render={(props)=><InventoryDetails itemsArray={this.state.allInv}
                                                             id={props.match.params.id}/>}/>
-                <Route path='/warehouses' exact component={WarehouseList}/>
+                <Route path='/warehouses' exact render={(props) => { return <WarehouseList {...props} postWarehouse={this.postWarehouse} /> }} />
                 <Route path='/inventory' exact render={()=>{return <InvList itemsArray={this.state.allInv}/>}}/>
->>>>>>> development
                 <Route path='/' exact render={()=><Redirect to='/inventory'/>}/>
                 {/* Are we adding not found page as well? */}
               </Switch>
