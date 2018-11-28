@@ -1,9 +1,45 @@
 import React, { Component } from 'react'
 import List1 from '../warehouseData.json'
 import { Link } from 'react-router-dom';
+import AddWarehouse from './AddWarehouse';
 
 export default class WarehouseList extends Component {
-	
+	state = {
+		showPopup: false,
+		newWarehouse: {
+			warehouseName: "",
+			street: "",
+			city: "",
+			country: "",
+			zipcode: "",
+			nameTitle: "",
+			phone: "",
+			email: "",
+			invType: ""
+		}
+	}
+
+	// watching inputs and updating state with every key pressed
+	watchingFormInputs = (e) => {
+		if (e.target.name === "warehouse") {
+			
+		} else if (e.target.name === "street") {
+			console.log("street")
+		}
+	}
+
+	// Function to show the AddWarehouse component
+	displayPopup = () => {
+		if(this.state.showPopup){
+			this.setState({
+				showPopup: false
+			})
+		} else{
+			this.setState({
+				showPopup: true
+			})
+		}
+	}
 
   render() {
     return (
@@ -39,9 +75,10 @@ export default class WarehouseList extends Component {
 						</div>
 					})
 				}
-				<div className="warehouse__add">
+				<div onClick={this.displayPopup} className="warehouse__addBtn">
 					<p>+</p>
 				</div>
+				<AddWarehouse show={this.state.showPopup} displayPopup={this.displayPopup} postWarehouse={this.props.postWarehouse} warehouseInputs={this.state.newWarehouse} watch={this.watchingFormInputs}/>
       </div>
     )
   }

@@ -13,10 +13,29 @@ const warehouseEP = 'warehouses/';
 
 
 class App extends Component {
-
-  state={
-    allInv:[]
+  state = {
+    allInv: []
   }
+
+  postWarehouse = (warehouseObject) => {
+    //taking in a warehouse object that is sent from the AddWarehouse Component
+    console.log(warehouseObject)
+    const init = {
+      body: JSON.stringify(warehouseObject),
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      }
+    };
+    fetch(`${serverURL}${warehouseEP}`, init)
+      .then((resp) => resp.json())
+      .then((data) => {
+        // call GET for new data once set up
+        console.log(data)
+      })
+      .catch((err) => { console.error("Caught error: ", err) });
+  }
+
   componentDidMount(){
     fetch(`${serverURL}${inventoryEP}`)
       .then(res=>res.json())
@@ -24,6 +43,7 @@ class App extends Component {
       .catch(err=>console.log(err));
     console.log('mounted');
   }
+
   render() {
     return (
       <Router>
@@ -36,7 +56,7 @@ class App extends Component {
                                                             warehouseId={props.match.params.warehouseId}/>}/>
                 <Route path='/inventory/:id' exact render={(props)=><InventoryDetails itemsArray={this.state.allInv}
                                                             id={props.match.params.id}/>}/>
-                <Route path='/warehouses' exact component={WarehouseList}/>
+                <Route path='/warehouses' exact render={(props) => { return <WarehouseList {...props} postWarehouse={this.postWarehouse} /> }} />
                 <Route path='/inventory' exact render={()=>{return <InvList itemsArray={this.state.allInv}/>}}/>
                 <Route path='/' exact render={()=><Redirect to='/inventory'/>}/>
                 {/* Are we adding not found page as well? */}

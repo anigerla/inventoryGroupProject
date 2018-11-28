@@ -113,10 +113,13 @@ h4{
   border-radius: 3px; 
   color:$white; 
   font-size:14px;
-  font-weight:$medium;
+  font-weight:$demibold;
   line-height:1.4em;
   letter-spacing: .2px;
   border:none;
+  width: 131px;
+  height: 38px;
+  padding: 0 20px;
 }
 
 @mixin hoverButton {
@@ -126,11 +129,14 @@ h4{
 //Form field mixin
 @mixin formField {
   font-family: 'Avenir Next';
+  width: 238px;
+  height: 40px;
   background-color: $white;
   border: solid 1px $grey3;
   border-radius: 2px;
   font-size:14px;
   line-height:1.4em;
+  padding: 15px 14px;
 }
 @mixin activeFormField {
   background-color: $grey5;
@@ -169,7 +175,7 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
   flex-direction: column;
   background-color: $navy;
   min-width: 250px;
-  z-index: 900;
+  z-index: 80;
   min-height: 100vh;
 
   .sidebar__logo {
@@ -425,7 +431,7 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
     }
   }
 }
-.warehouse__add{
+.warehouse__addBtn{
   width: 65px;
   height: 65px;
   background-color: $blue;
@@ -451,10 +457,101 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
     color:$white;
   }
   &:hover {
-    background-color: $navy;
+    @include hoverButton()
   }
 }
-  //Inventory List Component Styling ends
+// Warehouse Add popup
+.warehouse__blur{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000099;
+  z-index: 980;
+  justify-content: center;
+  align-items: center;
+}
+.warehouse__add{
+  position: absolute;
+  background-color: $white;
+  width: 50%;
+  height: 90%;
+  padding: 20px 60px;
+  border-radius: 3px;
+  border: 1px solid $grey2;
+  h1{
+    font-weight: 500
+  }
+
+  form{
+    label{
+      display: flex;
+      flex-direction: column;
+      font-weight: 500;
+      input, select{
+        @include formField();
+        outline: none;
+        margin: 5px 0 15px 0;
+        &:focus{
+          @include activeFormField()
+        }
+      }
+    }
+
+    .add__warehouseName{
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .add__warehouseDetails{
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0 30px;
+
+      .add__address, .add__contactInfo{
+        display: flex;
+        flex-direction: column;
+        h4{
+          margin: 15px 0;
+        }
+      }
+    }
+
+    #addWarehouseBtn{
+      @include regularButton();
+      display: flex;
+      margin-left: auto;
+      cursor: pointer;
+      &:hover{
+        @include hoverButton()
+      }
+    }
+  }
+
+  .add__warehouse--close{
+    position: absolute;
+    top: 18px;
+    right: 40px;
+    cursor: pointer;
+    svg{
+      margin-left: 8px;
+    }
+    p{
+      margin: 0;
+      font-weight: 500;
+      color: $grey2;
+    }
+    &:hover{
+      p{ color: $black}
+      svg{
+        g{
+          fill: $black
+        }
+      }
+    }
+  }
+}
 
   //Inventory Details Component Styling 
   .InvDetailsParent{
