@@ -79,7 +79,7 @@ export default class WarehouseList extends Component {
 					List1.map( (each, i) => {
 						return <div className="warehouse__card" key={each.warehouseId} id={each.warehouseId}>
 							<Link to={"/warehouses/" + each.warehouseId}>
-								<h2 className="warehouse__name">Warehouse Number {i + 1}</h2>
+								<h2 className="warehouse__name">{each.warehouseName}</h2>
 							</Link>
 							<div className="warehouse__details">
 								<div className="warehouse__address">

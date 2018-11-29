@@ -704,6 +704,46 @@ a {
   margin: 2em 0;
 }
 
+.footer {
+  display: none;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: #003B77;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer .sidebar__links {
+  color: #FFFFFF80;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+  text-decoration: none;
+}
+
+.footer .sidebar__links:hover {
+  color: #FFFFFF;
+  background-color: #004892;
+}
+
+.footer .sidebar__links:hover svg g {
+  fill: #FFFFFF;
+}
+
+.footer .sidebar__links svg {
+  margin-right: 10px;
+}
+
+.footer .sidebar__links h3 {
+  font-weight: 600;
+  margin: 0;
+}
+
 @media screen and (max-width: 890px) {
   .App {
     display: block;
@@ -749,7 +789,13 @@ a {
 
 @media screen and (max-width: 560px) {
   .InvListParent, .InvDetailsParent {
-    padding: 1rem 0.5rem;
+    padding: 1rem 0.5rem 3.5rem;
+  }
+  .sidebar :first-child {
+    width: 100%;
+  }
+  .sidebar .sidebar__links {
+    display: none;
   }
   .navbar .navbar__form {
     width: 70%;
@@ -759,6 +805,14 @@ a {
   }
   .InvListParent table th, .InvListParent table td {
     padding: 1%;
+  }
+  .warehouse__addBtn {
+    bottom: 80px;
+  }
+  .footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 /*# sourceMappingURL=index.css.map */

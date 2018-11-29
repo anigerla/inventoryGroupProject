@@ -7,6 +7,8 @@ import InventoryDetails from './components/InventoryDetails.js'
 import InvList from './components/InvList.js'
 import SideBar from './components/SideBar';
 import WarehouseList from './components/WarehouseList';
+import Footer from './components/Footer';
+
 const serverURL = 'http://localhost:8080/';
 const inventoryEP = 'inventory/';
 const warehouseEP = 'warehouses/';
@@ -42,7 +44,6 @@ class App extends Component {
       .then(res=>res.json())
       .then(inv => this.setState({allInv:inv}))
       .catch(err=>console.log(err));
-    console.log('mounted');
   }
 
   render() {
@@ -65,10 +66,9 @@ class App extends Component {
                 {/* Are we adding not found page as well? */}
               </Switch>
             </div>
-          </div>
-        </Router>
-       
-      
+          <Footer/>
+        </div>
+      </Router>
     );
   }
 }

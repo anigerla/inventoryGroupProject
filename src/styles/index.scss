@@ -32,6 +32,7 @@ $white05: #FFFFFF0D;
   font-style: normal;
 }
 
+
 @font-face {
   font-family: 'Avenir Next';
   src: url('./fonts/AvenirNext-DemiBold.eot');
@@ -629,61 +630,113 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
     }
   }
 
-  @media screen and (max-width: 890px){
-    .App{
-      display: block;
-    }
-    .sidebar{
-      flex-direction: row;
-      height: 70px;
-      min-height: 70px;
-      justify-content: space-around;
-      .sidebar__logo, .sidebar__links{
-        height: 100%;
-        width: 100%;
-        margin: 0 10px;
-        padding: 0;
-        justify-content: space-around;
-        align-items: center;
-        img{
-          margin: 0;
-        }
-        svg{
-          margin-right: 5px
-        }
-      }
-    }
-    .navbar{
-      padding: 0 40px;
-      .navbar__user{
-        svg{
-          margin: 0 10px 0 16px;
-        }
-      }
-    }
-    .warehouse__addBtn{
-      bottom: 40px;
-      right: 40px;
-    }
-  }
+// Footer Component
 
-  @media screen and (max-width: 560px){
-    .InvListParent, .InvDetailsParent{
-      padding: 1rem 0.5rem;
-    }
-    .navbar{
-      .navbar__form{
-        width: 70%;
-        input{
-          width: 100%
+.footer{
+  display: none;
+  justify-content: space-around;
+  background-color: $navy;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  
+  .sidebar__links {
+    color: $white50;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    text-decoration: none;
+
+    &:hover {
+      color:$white;
+      background-color: $blue;
+      svg {
+        g {
+          fill: $white
         }
       }
     }
-    .InvListParent{
-      table{
-        th, td {
-          padding: 1%;
-        }
+    svg {
+      margin-right: 10px;
+    }
+    h3 {
+      font-weight: $demibold;
+      margin: 0;
+    }
+  }
+}
+
+// Media Queries
+
+@media screen and (max-width: 890px){
+  .App{
+    display: block;
+  }
+  .sidebar{
+    flex-direction: row;
+    height: 70px;
+    min-height: 70px;
+    justify-content: space-around;
+    .sidebar__logo, .sidebar__links{
+      height: 100%;
+      width: 100%;
+      margin: 0 10px;
+      padding: 0;
+      justify-content: space-around;
+      align-items: center;
+      img{
+        margin: 0;
+      }
+      svg{
+        margin-right: 5px
       }
     }
   }
+  .navbar{
+    padding: 0 40px;
+    .navbar__user{
+      svg{
+        margin: 0 10px 0 16px;
+      }
+    }
+  }
+  .warehouse__addBtn{
+    bottom: 40px;
+    right: 40px;
+  }
+}
+
+@media screen and (max-width: 560px){
+  .InvListParent, .InvDetailsParent{
+    padding: 1rem 0.5rem 3.5rem;
+  }
+  .sidebar{
+    :first-child{
+      width: 100%;
+    }
+    .sidebar__links{
+      display: none;
+    }
+  }
+  .navbar{
+    .navbar__form{
+      width: 70%;
+      input{
+        width: 100%
+      }
+    }
+  }
+  .InvListParent{
+    table{
+      th, td {
+        padding: 1%;
+      }
+    }
+  }
+  .warehouse__addBtn{
+    bottom: 80px;
+  }
+  .footer{
+  display: flex
+  }
+}

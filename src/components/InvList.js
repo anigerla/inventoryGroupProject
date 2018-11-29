@@ -1,7 +1,7 @@
 //the UI for displaying the list of inventory items
 import React, { Component } from 'react';
 import Item from './Item';
-import { inflateRawSync } from 'zlib';
+// import { inflateRawSync } from 'zlib';
 
 const serverURL = 'http://localhost:8080/';
 const warehousesEP = 'warehouses/';
