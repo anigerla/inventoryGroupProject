@@ -368,6 +368,11 @@ a {
   padding-bottom: 5px;
 }
 
+.InvListParent table .error {
+  -webkit-column-span: 7;
+          column-span: 7;
+}
+
 .warehouse__card {
   background-color: #FFFFFF;
   border: 1px solid #DEDEDE;

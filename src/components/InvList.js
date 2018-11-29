@@ -1,6 +1,7 @@
 //the UI for displaying the list of inventory items
 import React, { Component } from 'react';
 import Item from './Item';
+import { inflateRawSync } from 'zlib';
 
 const serverURL = 'http://localhost:8080/';
 const warehousesEP = 'warehouses/';
@@ -11,10 +12,20 @@ export default class InvList extends Component {
     //only fetches if there is an warehouseId, otherwise use the items passed through param
         if(this.props.warehouseId){
             fetch(`${serverURL}${warehousesEP}${this.props.warehouseId}`)
-                .then(res=>res.json())
-                .then(data=>this.setState({warehouseInv:data.items
-                                            ,address:data.address
-                                             }));
+                .then(res=>{ 
+                            if(res.status===200){
+                                this.setState({fetched:true});
+                            }else{
+                                this.setState({fetched:'error'});
+                            }
+                            return res.json()})          // javascript ternary operator '<question> ? <item1>:<item2>' that sets state to empty array in 404 response
+                .then(data=>this.setState({warehouseInv:(data.items? data.items:[])
+                                                       //ternary that sets state.address.street to unknown if data.address comes back undefined(in a 404 response for example)
+                                            ,address:(data.address? data.address:{street:'Unknown Warehouse',
+                                                                                city:""})
+                                            ,name:(data.name? data.name:"")
+                                             }))
+                .catch(err=>console.log(err));
         }
     }
 
@@ -22,7 +33,9 @@ export default class InvList extends Component {
     state={
         warehouseInv:[],
         //boolean that shows whether to make additional request 
-        address:{}
+        address:{},
+        name:"",
+        fetched:null
     }
 
     render() {  
@@ -38,31 +51,40 @@ export default class InvList extends Component {
     //warehouseid, if defined is provided by props 
     let paramWHid = this.props.warehouseId;
     //this if statement will only run when a warehouseId is provided by App through props 
-    if(paramWHid && Object.values(this.state.address).length>0){
+    // and there was a successful fetch(status 200)
+    if(paramWHid && this.state.fetched){
         //if the paramWHid and address exist, means we want to load from state instead of parent props
         loadInv= this.state.warehouseInv;
-        title = `Inventory at ${this.state.address.street}, ${this.state.address.city}`
+        title = `Inventory at ${this.state.name} (${this.state.address.street}, ${this.state.address.city})`
 
     }
 
     //loop that goes through each item object in the inventoryData list
     //and passed the elements into relevant slots within the Item component
     let itemList = [];
-    for (let i=0; i < loadInv.length; i++) {
-        let oneItem = 
-            <Item id = {loadInv[i].id}  
-                prodName={loadInv[i].productName}
-                prodDescr={loadInv[i].productdescr}
-                lastOrder={loadInv[i].lastOrder}
-                location={loadInv[i].location}
-                quantity={loadInv[i].quantity}
-                status={loadInv[i].status}
-                key={loadInv[i].id}
-            />
-        itemList.push(oneItem);
+   
+        for (let i=0; i < loadInv.length; i++) {
+            let oneItem = 
+                <Item id = {loadInv[i].id}  
+                    prodName={loadInv[i].productName}
+                    prodDescr={loadInv[i].productdescr}
+                    lastOrder={loadInv[i].lastOrder}
+                    location={loadInv[i].location}
+                    quantity={loadInv[i].quantity}
+                    status={loadInv[i].status}
+                    key={loadInv[i].id}
+                />
+            itemList.push(oneItem);
+        }
+    
+    if(this.state.fetched==='error'){
+        itemList = (<tr>
+                        <td className="error">
+                            <h3>Warehouse does not exist</h3>
+                        </td>
+                    </tr>
+                    )
     }
-
-
     return (
         <div className="InvListParent">
             <div className="InvListParent__title">

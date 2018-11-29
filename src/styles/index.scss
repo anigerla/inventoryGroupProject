@@ -352,6 +352,8 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
       background-color: $grey5;
     }
 
+   
+
     & .ItemRow span:first-child {
       display: flex;
       flex-direction: column;
@@ -383,6 +385,10 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
         font-weight: bold;
         font-size: 16px;
         padding-bottom: 5px;
+      }
+
+      .error{
+        column-span: 7;
       }
 
     }
