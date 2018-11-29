@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Close from './Image Components/Close';
-import {Redirect} from 'react-router-dom';
+
 
 export default class AddWarehouse extends Component {
 	constructor() {

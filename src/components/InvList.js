@@ -18,10 +18,12 @@ export default class InvList extends Component {
                             }else{
                                 this.setState({fetched:'error'});
                             }
-                            return res.json()})
+                            return res.json()})          // javascript ternary operator '<question> ? <item1>:<item2>' that sets state to empty array in 404 response
                 .then(data=>this.setState({warehouseInv:(data.items? data.items:[])
+                                                       //ternary that sets state.address.street to unknown if data.address comes back undefined(in a 404 response for example)
                                             ,address:(data.address? data.address:{street:'Unknown Warehouse',
-                                                                                city:""})    
+                                                                                city:""})
+                                            ,name:(data.name? data.name:"")
                                              }))
                 .catch(err=>console.log(err));
         }
@@ -32,6 +34,7 @@ export default class InvList extends Component {
         warehouseInv:[],
         //boolean that shows whether to make additional request 
         address:{},
+        name:"",
         fetched:null
     }
 
@@ -48,10 +51,11 @@ export default class InvList extends Component {
     //warehouseid, if defined is provided by props 
     let paramWHid = this.props.warehouseId;
     //this if statement will only run when a warehouseId is provided by App through props 
+    // and there was a successful fetch(status 200)
     if(paramWHid && this.state.fetched){
         //if the paramWHid and address exist, means we want to load from state instead of parent props
         loadInv= this.state.warehouseInv;
-        title = `Inventory at ${this.state.address.street}, ${this.state.address.city}`
+        title = `Inventory at ${this.state.name} (${this.state.address.street}, ${this.state.address.city})`
 
     }
 
