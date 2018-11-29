@@ -76,13 +76,13 @@ export default class WarehouseList extends Component {
 									<p>{each.address.city}</p>
 									<p>{each.address.zipcode}</p>
 								</div>
-								<div className="contact">
+								<div className="warehouse__contact">
 									<p className="warehouse--black">CONTACT</p>
 									<p>{each.contact.nameTitle}</p>
 									<p>{each.contact.phone}</p>
 									<p>{each.contact.email}</p>
 								</div>
-								<div className="warehouse__address">
+								<div className="warehouse__inventory">
 									<p className="warehouse--black">INVENTORY TYPE:</p>
 									<p>Industrial, Automotive, Heavy Industry</p>
 								</div>
