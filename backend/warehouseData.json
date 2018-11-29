@@ -1,7 +1,7 @@
 [
     {
         "warehouseId": "A1",
-        "warehouseName": "",
+        "warehouseName": "The Hanger",
         "address": 
             {
             "street": "123 Main Street West",
@@ -19,7 +19,7 @@
     },
     {
         "warehouseId": "A2",
-        "warehouseName": "",
+        "warehouseName": "The Bay",
         "address": 
             {
             "street": "123 Main Street West",
@@ -37,7 +37,7 @@
     },
     {
         "warehouseId": "A3",
-        "warehouseName": "",
+        "warehouseName": "The Hanger Bay",
         "address": 
             {
             "street": "123 Main Street West",
@@ -55,7 +55,7 @@
     },
     {
         "warehouseId": "A4",
-        "warehouseName": "",
+        "warehouseName": "Area 51",
         "address": 
             {
             "street": "123 Main Street West",

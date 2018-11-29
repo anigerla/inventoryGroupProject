@@ -30,7 +30,9 @@ class App extends Component {
       .then((resp) => resp.json())
       .then((data) => {
         // call GET for new data once set up
-        console.log(data)
+        console.log(data);
+        //refresh warehouses if submit is successful
+        window.location.reload();
       })
       .catch((err) => { console.error("Caught error: ", err) });
   }
