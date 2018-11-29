@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 
 //get request to return all inventory items 
 app.get('/inventory', (req,res)=>{
-    res.json(inventoryData);
+        res.json(inventoryData);
 });
 
 //get request for specific inventory item 
@@ -50,8 +50,9 @@ app.get('/inventory/:id',(req,res)=>{
 app.get('/warehouses/:id',(req,res)=>{
     let warehouseArray = inventoryData.filter(item=>{ return item.warehouseId===req.params.id});
     let warehouse = warehouseData.find(item=>{return item.warehouseId ===req.params.id})
-    if(warehouseArray.length>0){
+    if(warehouse){
         res.json( { address:warehouse.address,
+                   name: warehouse.warehouseName,
                  items:warehouseArray});
     }else{
         res.status(404).json('Warehouse does not have specific inventory');
@@ -85,6 +86,11 @@ app.post("/warehouses/", (req, res) => {
     // send back new warehouse object
     res.json(newWarehouse)
 });
+
+//get all warehouse data 
+app.get('/warehouses', (req,res)=>{
+        res.json(warehouseData);
+})
 
 // code to start the server
 app.listen(8080, (err) => {

@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import List1 from '../warehouseData.json'
+// import List1 from '../warehouseData.json'
 import { Link } from 'react-router-dom';
 import AddWarehouse from './AddWarehouse';
+const serverURL = 'http://localhost:8080/';
+const warehouseEP = 'warehouses/';
 
 export default class WarehouseList extends Component {
 	state = {
@@ -16,7 +18,15 @@ export default class WarehouseList extends Component {
 			phone: "",
 			email: "",
 			invType: ""
-		}
+		},
+		List1:[]
+	}
+
+	componentDidMount(){
+		fetch(`${serverURL}${warehouseEP}`)
+			.then(res=>res.json())
+			.then(data=>this.setState({List1:data}))
+			.catch(err=>console.log(err));
 	}
 
 	// watching inputs and updating state with every key pressed
@@ -57,6 +67,8 @@ export default class WarehouseList extends Component {
 	}
 
   render() {
+	  
+	let {List1} = this.state;
     return (
 			<div className="InvListParent">
 				<div className="InvListParent__title">

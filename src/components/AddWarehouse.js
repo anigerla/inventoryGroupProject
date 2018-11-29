@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import Close from './Image Components/Close'
+import React, { Component } from 'react';
+import Close from './Image Components/Close';
+
 
 export default class AddWarehouse extends Component {
 	constructor() {
@@ -15,8 +16,10 @@ export default class AddWarehouse extends Component {
 		// Calling the postWarehouse Function/Method that has been passed down as a prop from App.js
 		this.props.postWarehouse(this.props.warehouseInputs)
 
+		//toggles closing of popup
+		this.props.displayPopup();
 		// clearing the input fields of the form
-		this.props.reset();
+		this.props.reset();	
 	}
 
   render() {
