@@ -31,7 +31,7 @@ export default class AddWarehouse extends Component {
 		}
 		let {warehouseName,street,city,zipcode,nameTitle,phone,email} = this.props.warehouseInputs
 		let isEnabled;
-		if (warehouseName !== "" && street !== "" && city !== "" && zipcode !== "" && nameTitle !== "" && phone !== "" && email !== ""){
+	  if (warehouseName.trim() !== "" && street.trim() !== "" && city.trim() !== "" && zipcode.trim() !== "" && nameTitle.trim() !== "" && phone.trim() !== "" && email.trim() !== ""){
 			isEnabled = false
 		} else{
 			isEnabled = true

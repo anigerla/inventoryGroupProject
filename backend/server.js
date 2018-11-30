@@ -75,7 +75,7 @@ app.post("/warehouses/", (req, res) => {
         },
         contact:
         {
-            nameTitle: nameTitle,
+            nameTitle: nameTitle + ", Warehouse Manager",
             phone: phone,
             email: email
         },

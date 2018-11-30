@@ -190,7 +190,7 @@ a {
   background-image: url("../components/Image Components/Search.svg");
   background-repeat: no-repeat;
   background-position: right center;
-  background-position-x: 340px;
+  background-position-x: 95%;
 }
 
 .navbar .navbar__form input::-webkit-input-placeholder {
@@ -296,7 +296,7 @@ a {
 }
 
 .InvListParent table th, .InvListParent table td {
-  padding: 1.5rem;
+  padding: 2%;
 }
 
 .InvListParent table td:nth-child(n+4), .InvListParent table th:nth-child(n+4) {
@@ -416,6 +416,10 @@ a {
   font-weight: 600;
 }
 
+.warehouse__card .warehouse__details .warehouse__contact, .warehouse__card .warehouse__details .warehouse__address, .warehouse__card .warehouse__details .warehouse__inventory {
+  margin: 15px 25px 0 0;
+}
+
 .warehouse__card .warehouse__details .warehouse--black {
   color: #3A3A3A;
   margin-bottom: 8px;
@@ -514,7 +518,7 @@ a {
 
 .warehouse__add form label input, .warehouse__add form label select {
   font-family: 'Avenir Next';
-  width: 238px;
+  max-width: 238px;
   height: 40px;
   background-color: #FFFFFF;
   border: solid 1px #CACACA;
@@ -560,6 +564,10 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 50%;
+  margin-right: 15px;
 }
 
 .warehouse__add form .add__warehouseDetails .add__address h4, .warehouse__add form .add__warehouseDetails .add__contactInfo h4 {
@@ -593,12 +601,13 @@ a {
 
 .warehouse__add form #addWarehouseBtn:disabled {
   opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .warehouse__add .add__warehouse--close {
   position: absolute;
   top: 18px;
-  right: 40px;
+  right: 20px;
   cursor: pointer;
 }
 
@@ -693,5 +702,117 @@ a {
 
 .InvDetailsParent .detailCard .details li {
   margin: 2em 0;
+}
+
+.footer {
+  display: none;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: #003B77;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer .sidebar__links {
+  color: #FFFFFF80;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+  text-decoration: none;
+}
+
+.footer .sidebar__links:hover {
+  color: #FFFFFF;
+  background-color: #004892;
+}
+
+.footer .sidebar__links:hover svg g {
+  fill: #FFFFFF;
+}
+
+.footer .sidebar__links svg {
+  margin-right: 10px;
+}
+
+.footer .sidebar__links h3 {
+  font-weight: 600;
+  margin: 0;
+}
+
+@media screen and (max-width: 890px) {
+  .App {
+    display: block;
+  }
+  .sidebar {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: 70px;
+    min-height: 70px;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .sidebar .sidebar__logo, .sidebar .sidebar__links {
+    height: 100%;
+    width: 100%;
+    margin: 0 10px;
+    padding: 0;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .sidebar .sidebar__logo img, .sidebar .sidebar__links img {
+    margin: 0;
+  }
+  .sidebar .sidebar__logo svg, .sidebar .sidebar__links svg {
+    margin-right: 5px;
+  }
+  .navbar {
+    padding: 0 40px;
+  }
+  .navbar .navbar__user svg {
+    margin: 0 10px 0 16px;
+  }
+  .warehouse__addBtn {
+    bottom: 40px;
+    right: 40px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .InvListParent, .InvDetailsParent {
+    padding: 1rem 0.5rem 3.5rem;
+  }
+  .sidebar :first-child {
+    width: 100%;
+  }
+  .sidebar .sidebar__links {
+    display: none;
+  }
+  .navbar .navbar__form {
+    width: 70%;
+  }
+  .navbar .navbar__form input {
+    width: 100%;
+  }
+  .InvListParent table th, .InvListParent table td {
+    padding: 1%;
+  }
+  .warehouse__addBtn {
+    bottom: 80px;
+  }
+  .footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 /*# sourceMappingURL=index.css.map */
