@@ -1,4 +1,3 @@
-// initialising required elements for the server function
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -47,21 +46,68 @@ app.delete('/inventory/:id', (req, res) => {
     console.log(inventoryData); 
 })
 
+
 //get request to return all inventory items 
 app.get('/inventory', (req,res)=>{
-    res.json(inventoryData);
+        res.json(inventoryData);
 });
 
 //get request for specific inventory item 
 //incomplete
-// app.get('/inventory/:id',(req,res)=>{
-//     let details = inventoryDetail.find(item=>{ return item.id===req.params.id});
-//     if(details){
-//         res.json(details);
-//     }else{
-//         res.status(404).send('Inventory Item Could not be Found');
-//     }
-// });
+app.get('/inventory/:id',(req,res)=>{
+    let details = inventoryDetail.find(item=>{ return item.id===req.params.id});
+    if(details){
+        res.json(details);
+    }else{
+        res.status(404).send('Inventory Item Could not be Found');
+    }
+});
+
+//needs to return warehouse address as well 
+app.get('/warehouses/:id',(req,res)=>{
+    let warehouseArray = inventoryData.filter(item=>{ return item.warehouseId===req.params.id});
+    let warehouse = warehouseData.find(item=>{return item.warehouseId ===req.params.id})
+    if(warehouse){
+        res.json( { address:warehouse.address,
+                   name: warehouse.warehouseName,
+                 items:warehouseArray});
+    }else{
+        res.status(404).json('Warehouse does not have specific inventory');
+    }
+});
+
+app.post("/warehouses/", (req, res) => {
+    // deconstruct elements from req.body
+    const { warehouseName, street, city, country, zipcode, nameTitle, phone, email, invType } = req.body
+    // create a new object to be push into dara array
+    let newWarehouse = {
+        warehouseId: "A" + (warehouseData.length + 1),
+        warehouseName: warehouseName,
+        address:
+        {
+            street: street,
+            city: city,
+            zipcode: zipcode,
+            country: country
+        },
+        contact:
+        {
+            nameTitle: nameTitle + ", Warehouse Manager",
+            phone: phone,
+            email: email
+        },
+        invType: invType
+    }
+    // push new object into data array
+    warehouseData.push(newWarehouse)
+    // send back new warehouse object
+    res.json(newWarehouse)
+});
+
+//get all warehouse data 
+app.get('/warehouses', (req,res)=>{
+        res.json(warehouseData);
+})
 
 // code to start the server
 app.listen(8080, (err) => {

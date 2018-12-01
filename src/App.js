@@ -7,24 +7,43 @@ import InventoryDetails from './components/InventoryDetails.js'
 import InvList from './components/InvList.js'
 import SideBar from './components/SideBar';
 import WarehouseList from './components/WarehouseList';
+import Footer from './components/Footer';
+
 const serverURL = 'http://localhost:8080/';
 const inventoryEP = 'inventory/';
 const warehouseEP = 'warehouses/';
 
-export default class App extends Component {
-  //initialize state
-  state={
-    //list of inventory items is stored in a below empty array
-    allInv:[]
+
+class App extends Component {
+  state = {
+    allInv: []
   }
 
-  //fetch request gets inventory list data from the backend 
+  postWarehouse = (warehouseObject) => {
+    //taking in a warehouse object that is sent from the AddWarehouse Component
+    const init = {
+      body: JSON.stringify(warehouseObject),
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      }
+    };
+    fetch(`${serverURL}${warehouseEP}`, init)
+      .then((resp) => resp.json())
+      .then((data) => {
+        // call GET for new data once set up
+        console.log(data);
+        //refresh warehouses if submit is successful
+        window.location.reload();
+      })
+      .catch((err) => { console.error("Caught error: ", err) });
+  }
+
   componentDidMount(){
     fetch(`${serverURL}${inventoryEP}`)
       .then(res=>res.json())
       .then(inv => this.setState({allInv:inv}))
       .catch(err=>console.log(err));
-    console.log('mounted');
   }
 
   removeItem = (id) => {
@@ -59,17 +78,21 @@ export default class App extends Component {
             <div className="main">
               <NavBar/>
               <Switch> 
-                <Route path='/warehouses/:warehouseId' exact render={(props)=><InvList itemsArray={this.state.allInv} warehouseId={props.match.params.warehouseId}/>}/>
-                <Route path='/inventory/:id' exact render={(props)=><InventoryDetails itemsArray={this.state.allInv} id={props.match.params.id} />}/>
-                <Route path='/warehouses' exact component={WarehouseList}/>
-                <Route path='/inventory' exact render={()=>{return <InvList itemsArray={this.state.allInv} removeItem={this.removeItem}/>}}/>
+                <Route path='/warehouses/:warehouseId' exact render={(props)=><InvList itemsArray={this.state.allInv}
+                                                            warehouseId={props.match.params.warehouseId}/>}/>
+                <Route path='/inventory/:id' exact render={(props)=>{
+                  let targetItem = this.state.allInv.find(inv=>inv.id===props.match.params.id);
+                  return <InventoryDetails item={targetItem}id={props.match.params.id}/>}}/>
+                                                            
+                <Route path='/warehouses' exact render={(props) => { return <WarehouseList {...props} postWarehouse={this.postWarehouse} /> }} />
+                <Route path='/inventory' exact render={()=>{return <InvList itemsArray={this.state.allInv}/>}}/>
                 <Route path='/' exact render={()=><Redirect to='/inventory'/>}/>
                 {/* Are we adding not found page as well? */}
               </Switch>
             </div>
+          <Footer/>
         </div>
       </Router>
-       
-      
-    )}
+    );
+  }
 }
