@@ -30,23 +30,21 @@ app.use(bodyParser.json());
     //Body Parser code ends
  //middleware functions end
 //----------------------------------------------------------------------------------------------------
-
+//GET request that receives full list of inventory data
 app.get('/inventory', (req, res) => {
     res.json(inventoryData);
 })
 
+//DELETE request that sends the object that is to be removed
+//from the list
 app.delete('/inventory/:id', (req, res) => {
     const itemId = req.params.id;
-    const someItem = req.body;
-    inventoryData.find((requestItem, index) => {
-        if (requestItem.id === itemId) {
-            console.log(inventoryData[index]);
-            // res.json(foundItem);
-        } else {
-            res.json("Item not found");
-        }
-        
-    })
+    // console.log(itemId)
+    let found= inventoryData.find(item=>item.id===itemId);
+    foundItem = inventoryData.indexOf(found);
+    inventoryData.splice(foundItem, 1);
+    res.json(inventoryData[foundItem]);
+    console.log(inventoryData); 
 })
 
 //get request to return all inventory items 

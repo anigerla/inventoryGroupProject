@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 
 export default class Item extends Component {
     
-    
     render() {
 
         return (
@@ -31,8 +30,8 @@ export default class Item extends Component {
                                 <div>
                                     <span>Replenish Stock</span>
                                 </div>
-                                <div onClick="myFunction">      
-                                    <span>Remove</span>
+                                <div >      
+                                    <span onClick={() => this.props.removeItem(this.props.id)}>Remove</span>
                                 </div>      
                             </div>
                         </div>
@@ -41,3 +40,4 @@ export default class Item extends Component {
             </tr> 
     )}
 }
+

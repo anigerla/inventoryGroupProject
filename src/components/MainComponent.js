@@ -6,18 +6,6 @@ import InventoryDetails from './InventoryDetails.js';
 
 export default class MainComponent extends Component {
 
-  //initialize state
-  // state = {
-  //   itemsArray: []
-  // };
-
-  // componentDidMount {
-  //   fetch get request for InvList data
-  //   fetch get request for WarehouseList data
-  // }
-
-  // object.onclick = function() { my_script };
-
   render() {
     return (
       <div className="main">

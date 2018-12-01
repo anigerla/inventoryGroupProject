@@ -237,6 +237,8 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  /* The container <div> - needed to position the dropdown content */
+  /* Dropdown Child container hidden by default */
 }
 
 .navbar .navbar__user div {
@@ -254,6 +256,64 @@ a {
 
 .navbar .navbar__user svg g {
   fill: #ADADAD;
+}
+
+.navbar .navbar__user .dropdownParent {
+  position: relative;
+  background-color: white;
+}
+
+.navbar .navbar__user .dropdownChild {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  left: -7.5rem;
+  bottom: -5rem;
+  background-color: white;
+  border: 1px solid #DEDEDE;
+}
+
+.navbar .navbar__user .dropdownChild--container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-size: 14px;
+}
+
+.navbar .navbar__user .dropdownChild--container .itemLink:hover {
+  text-decoration: none;
+}
+
+.navbar .navbar__user .dropdownChild--container div {
+  width: 100%;
+}
+
+.navbar .navbar__user .dropdownChild--container span {
+  padding: 0.5rem;
+}
+
+.navbar .navbar__user .dropdownChild--container a {
+  color: black;
+}
+
+.navbar .navbar__user .dropdownParent:hover .dropdownChild {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navbar .navbar__user .dropdownChild--container div:hover {
+  background-color: #ddd;
 }
 
 .InvListParent {
@@ -344,7 +404,7 @@ a {
   text-align: left;
 }
 
-.InvListParent table .ItemRow span:first-child:hover {
+.InvListParent table .prodName:hover {
   cursor: pointer;
   text-decoration: underline;
   color: #3A3A3A;
@@ -405,17 +465,26 @@ a {
   text-decoration: none;
 }
 
+.InvListParent table .dropdownChild--container div {
+  width: 100%;
+}
+
 .InvListParent table .dropdownChild--container span {
   padding: 0.5rem;
 }
 
-.InvListParent table .dropdownChild--container span:hover {
-  background-color: #ddd;
+.InvListParent table .dropdownChild--container a {
+  color: black;
 }
 
 .InvListParent table .dropdownParent:hover .dropdownChild {
   display: block;
   cursor: pointer;
+  text-decoration: none;
+}
+
+.InvListParent table .dropdownChild--container div:hover {
+  background-color: #ddd;
 }
 
 .InvListParent .warehouse__card {

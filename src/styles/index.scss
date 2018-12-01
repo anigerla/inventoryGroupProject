@@ -273,6 +273,63 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
           fill: $grey2;
         }
     }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdownParent {
+        position: relative;
+        background-color: white;
+    }
+
+    /* Dropdown Child container hidden by default */
+    .dropdownChild {
+        display: none;
+        position: absolute;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        left: -7.5rem;
+        bottom: -5rem;
+        background-color: white;
+        border: 1px solid $grey4;
+    }
+
+      .dropdownChild--container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 14px;
+      
+      & .itemLink:hover {
+        text-decoration: none;
+      }
+
+      & div {
+        width: 100%;
+      }
+
+      & span {
+          padding: 0.5rem;
+      }
+
+      & a {
+        color: black;
+      }
+
+    }  
+
+    // /* Show the dropdown menu on hover */
+    .dropdownParent:hover .dropdownChild {
+      display: block;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    // /* Change color of dropdown links on hover */
+    .dropdownChild--container div:hover {
+      background-color: #ddd;
+    }
+
+
   }
 }
 
@@ -308,7 +365,7 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
   & table {
     width: 100%;
     border: 1px solid $grey4;
-    border-collapse:collapse; 
+    border-collapse: collapse; 
 
     & th, td {
       padding: 1.5rem;
@@ -352,7 +409,7 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
       text-align: left;
     }
 
-    & .ItemRow span:first-child:hover {
+    & .prodName:hover {
       cursor: pointer;
       text-decoration: underline;
       color: $black;
@@ -407,20 +464,30 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
         text-decoration: none;
       }
 
+      & div {
+        width: 100%;
+      }
+
       & span {
           padding: 0.5rem;
       }
-    }  
 
-    // /* Change color of dropdown links on hover */
-    .dropdownChild--container span:hover {
-      background-color: #ddd;
-    }
+      & a {
+        color: black;
+      }
+
+    }  
 
     // /* Show the dropdown menu on hover */
     .dropdownParent:hover .dropdownChild {
       display: block;
       cursor: pointer;
+      text-decoration: none;
+    }
+
+    // /* Change color of dropdown links on hover */
+    .dropdownChild--container div:hover {
+      background-color: #ddd;
     }
 
     //Dots Icon styling
@@ -554,7 +621,6 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
           margin:2em 0;
         }
       }
-  }
-}
-  
+    }
+  } 
 }
