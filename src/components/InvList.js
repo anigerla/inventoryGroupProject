@@ -16,7 +16,7 @@ export default class InvList extends Component {
                             if(res.status===200){
                                 this.setState({fetched:true});
                             }else{
-                                this.setState({fetched:'error'});
+                                this.setState({fetched:false});
                             }
                             return res.json()})          // javascript ternary operator '<question> ? <item1>:<item2>' that sets state to empty array in 404 response
                 .then(data=>this.setState({warehouseInv:(data.items? data.items:[])
@@ -26,6 +26,20 @@ export default class InvList extends Component {
                                             ,name:(data.name? data.name:"")
                                              }))
                 .catch(err=>console.log(err));
+        }
+    }
+    
+    //resets state when navigating from unknown warehouse invlist to inventory
+    static getDerivedStateFromProps(props,state){
+        if(props.all){
+            return {
+                warehouseInv:[],
+                address:{},
+                name:"",
+                fetched:null
+            }
+        }else{
+            return state
         }
     }
 
@@ -77,7 +91,7 @@ export default class InvList extends Component {
             itemList.push(oneItem);
         }
     
-    if(this.state.fetched==='error'){
+    if(this.state.fetched===false){
         itemList = (<tr>
                         <td className="error">
                             <h3>Warehouse does not exist</h3>
