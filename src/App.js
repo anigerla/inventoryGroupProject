@@ -61,7 +61,7 @@ class App extends Component {
                   return <InventoryDetails item={targetItem}id={props.match.params.id}/>}}/>
                                                             
                 <Route path='/warehouses' exact render={(props) => { return <WarehouseList {...props} postWarehouse={this.postWarehouse} /> }} />
-                <Route path='/inventory' exact render={()=>{return <InvList itemsArray={this.state.allInv}/>}}/>
+                <Route path='/inventory' exact render={()=>{return <InvList all={true} itemsArray={this.state.allInv}/>}}/>
                 <Route path='/' exact render={()=><Redirect to='/inventory'/>}/>
                 {/* Are we adding not found page as well? */}
               </Switch>
