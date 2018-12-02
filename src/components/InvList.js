@@ -8,8 +8,6 @@ const warehousesEP = 'warehouses/';
 
 export default class InvList extends Component {
 
-    render() {  
-
     //loop that goes through each item object in the inventoryData list
     //and passed the elements into relevant slots within the Item component
     componentDidMount() {
@@ -105,5 +103,5 @@ export default class InvList extends Component {
             </table>
         </div>
     )
+ }
 }
-

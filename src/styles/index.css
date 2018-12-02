@@ -271,9 +271,10 @@ a {
           box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   left: -7.5rem;
-  bottom: -5rem;
+  bottom: -3rem;
   background-color: white;
   border: 1px solid #DEDEDE;
+  border-radius: 0;
 }
 
 .navbar .navbar__user .dropdownChild--container {
@@ -430,7 +431,6 @@ a {
   padding-bottom: 5px;
 }
 
-<<<<<<< HEAD
 .InvListParent table .dropdownParent {
   position: relative;
 }
@@ -488,15 +488,12 @@ a {
   background-color: #ddd;
 }
 
-.InvListParent .warehouse__card {
-=======
-.InvListParent table .error {
+.InvListParent table .dropdownChild--container div:hover .error {
   -webkit-column-span: 7;
           column-span: 7;
 }
 
 .warehouse__card {
->>>>>>> development
   background-color: #FFFFFF;
   border: 1px solid #DEDEDE;
   border-radius: 2px;
@@ -511,23 +508,23 @@ a {
           flex-direction: column;
 }
 
-.InvListParent .warehouse__card a {
+.warehouse__card a {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
 
-.InvListParent .warehouse__card .warehouse__name {
+.warehouse__card .warehouse__name {
   color: #003B77;
   margin: 0;
   margin-bottom: 12px;
 }
 
-.InvListParent .warehouse__card .warehouse__name:hover {
+.warehouse__card .warehouse__name:hover {
   text-decoration: underline;
 }
 
-.InvListParent .warehouse__card .warehouse__details {
+.warehouse__card .warehouse__details {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -539,29 +536,21 @@ a {
   font-weight: 600;
 }
 
-<<<<<<< HEAD
-.InvListParent .warehouse__card .warehouse__details .warehouse--black {
-=======
 .warehouse__card .warehouse__details .warehouse__contact, .warehouse__card .warehouse__details .warehouse__address, .warehouse__card .warehouse__details .warehouse__inventory {
   margin: 15px 25px 0 0;
 }
 
 .warehouse__card .warehouse__details .warehouse--black {
->>>>>>> development
   color: #3A3A3A;
   margin-bottom: 8px;
 }
 
-.InvListParent .warehouse__card .warehouse__details p {
+.warehouse__card .warehouse__details p {
   margin: 3px 0;
   color: #7c7c7c;
 }
 
-<<<<<<< HEAD
-.InvListParent .warehouse__add {
-=======
 .warehouse__addBtn {
->>>>>>> development
   width: 65px;
   height: 65px;
   background-color: #004892;
@@ -586,11 +575,7 @@ a {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
-.InvListParent .warehouse__add p {
-=======
 .warehouse__addBtn p {
->>>>>>> development
   width: 22px;
   height: 22px;
   margin: 0;
@@ -606,13 +591,6 @@ a {
   color: #FFFFFF;
 }
 
-<<<<<<< HEAD
-.InvListParent .warehouse__add:hover {
-  background-color: #003B77;
-}
-
-.InvListParent .InvDetailsParent {
-=======
 .warehouse__addBtn:hover {
   background-color: #003B77;
 }
@@ -772,19 +750,18 @@ a {
 }
 
 .InvDetailsParent {
->>>>>>> development
   background-color: #F7F7F7;
   min-height: 100vh;
   padding: 2rem 3rem;
 }
 
-.InvListParent .InvDetailsParent .detailCard {
+.InvDetailsParent .detailCard {
   background-color: #FFFFFF;
   border: solid #CACACA 1px;
   padding: 2.8em;
 }
 
-.InvListParent .InvDetailsParent .detailCard .title {
+.InvDetailsParent .detailCard .title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -796,14 +773,14 @@ a {
           align-items: center;
 }
 
-.InvListParent .InvDetailsParent .detailCard .title__name {
+.InvDetailsParent .detailCard .title__name {
   color: #004892;
   font-weight: 600;
   display: inline-block;
   text-align: left;
 }
 
-.InvListParent .InvDetailsParent .detailCard .title__newOrderButton {
+.InvDetailsParent .detailCard .title__newOrderButton {
   font-family: 'Avenir Next';
   background-color: #004892;
   border-radius: 3px;
@@ -821,29 +798,29 @@ a {
   text-align: right;
 }
 
-.InvListParent .InvDetailsParent .detailCard .title__newOrderButton:hover {
+.InvDetailsParent .detailCard .title__newOrderButton:hover {
   background-color: #003B77;
   cursor: pointer;
 }
 
-.InvListParent .InvDetailsParent .detailCard .details {
+.InvDetailsParent .detailCard .details {
   padding: 0;
   list-style-type: none;
   overflow-wrap: break-word;
 }
 
-.InvListParent .InvDetailsParent .detailCard .details span {
+.InvDetailsParent .detailCard .details span {
   font-weight: 600;
   display: inline-block;
   vertical-align: top;
 }
 
-.InvListParent .InvDetailsParent .detailCard .details .text {
+.InvDetailsParent .detailCard .details .text {
   display: inline-block;
   width: 45%;
 }
 
-.InvListParent .InvDetailsParent .detailCard .details li {
+.InvDetailsParent .detailCard .details li {
   margin: 2em 0;
 }
 

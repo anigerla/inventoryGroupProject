@@ -13,16 +13,14 @@ export default class NavBar extends Component {
           <div class="dropdownParent">
             <BackImg/>
             <div class="dropdownChild">
-              <div class="dropdownChild--container">
-                <div>
-                  <div class="dropdwnSpanHolder">
-                      <span>Profile</span> 
-                  </div>
-                  <div class="dropdwnSpanHolder">
-                    <span>Sign Out</span>
-                  </div>
+              {/* <div class="dropdownChild--container"> */}
+                <div class="dropdwnSpanHolder">
+                    <span>Profile</span> 
                 </div>
-              </div>
+                <div class="dropdwnSpanHolder">
+                  <span>Sign Out</span>
+                </div>
+              {/* </div> */}
             </div>
           </div>
         </div>

@@ -14,7 +14,7 @@ const inventoryEP = 'inventory/';
 const warehouseEP = 'warehouses/';
 
 
-class App extends Component {
+export default class App extends Component {
   state = {
     allInv: []
   }
@@ -56,8 +56,8 @@ class App extends Component {
       body: JSON.stringify(),
       })
       .then(response => response.json())
-      alert(`item with ${id}`);  
-      
+      // alert(`item with ${id}`);  
+    .then( () => { 
     fetch(`http://localhost:8080/inventory`)
       .then(response => {
         return response.json();
@@ -66,8 +66,8 @@ class App extends Component {
         return this.setState({ allInv: data })
         // alert("data loaded");
         // console.log("data finalised");
-      
-    });
+      });
+    }) 
   }
 
   render() {
@@ -78,16 +78,13 @@ class App extends Component {
             <div className="main">
               <NavBar/>
               <Switch> 
-                <Route path='/warehouses/:warehouseId' exact render={(props)=><InvList itemsArray={this.state.allInv}
-                                                            warehouseId={props.match.params.warehouseId}/>}/>
+                <Route path='/warehouses/:warehouseId' exact render={(props)=><InvList itemsArray={this.state.allInv} warehouseId={props.match.params.warehouseId}/>}/>
                 <Route path='/inventory/:id' exact render={(props)=>{
                   let targetItem = this.state.allInv.find(inv=>inv.id===props.match.params.id);
-                  return <InventoryDetails item={targetItem}id={props.match.params.id}/>}}/>
-                                                            
+                  return <InventoryDetails item={targetItem} id={props.match.params.id}/>}}/> 
                 <Route path='/warehouses' exact render={(props) => { return <WarehouseList {...props} postWarehouse={this.postWarehouse} /> }} />
-                <Route path='/inventory' exact render={()=>{return <InvList itemsArray={this.state.allInv}/>}}/>
+                <Route path='/inventory' exact render={() => { return <InvList itemsArray={this.state.allInv} removeItem={this.removeItem}/>}} />
                 <Route path='/' exact render={()=><Redirect to='/inventory'/>}/>
-                {/* Are we adding not found page as well? */}
               </Switch>
             </div>
           <Footer/>
