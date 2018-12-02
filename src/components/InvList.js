@@ -9,28 +9,26 @@ const warehousesEP = 'warehouses/';
 export default class InvList extends Component {
 
     render() {  
-  
-    let loadInv = this.props.itemsArray;
 
     //loop that goes through each item object in the inventoryData list
     //and passed the elements into relevant slots within the Item component
-    componentDidMount(){
+    componentDidMount() {
     //only fetches if there is an warehouseId, otherwise use the items passed through param
         if(this.props.warehouseId){
             fetch(`${serverURL}${warehousesEP}${this.props.warehouseId}`)
                 .then(res=>{ 
                     if(res.status===200){
                         this.setState({fetched:true});
-                    }else{
+                    } else {
                         this.setState({fetched:'error'});
                     }
                         return res.json()})             // javascript ternary operator '<question> ? <item1>:<item2>' that sets state to empty array in 404 response
                 .then(data=>this.setState({warehouseInv:(data.items? data.items:[])
                 //ternary that sets state.address.street to unknown if data.address comes back undefined(in a 404 response for example),address:(data.address? data.address:{street:'Unknown Warehouse', city:""}),name:(data.name? data.name:"")}))
-                .catch(err=>console.log(err));
+                .catch(err=>console.log(err))
+        }))
         }
     }
-
     //the state tracks only warehouse specific inv that is fetched
     state={
         warehouseInv:[],
@@ -45,9 +43,6 @@ export default class InvList extends Component {
     //these variables will be used when state is introduced and static data is changed to dynamic
     //please, do not remove    
     let loadInv = this.props.itemsArray;
-
-
-
     //add conditional render for warehouse inventory 
     let title="Inventory";
     //warehouseid, if defined is provided by props 
@@ -58,7 +53,6 @@ export default class InvList extends Component {
         //if the paramWHid and address exist, means we want to load from state instead of parent props
         loadInv= this.state.warehouseInv;
         title = `Inventory at ${this.state.name} (${this.state.address.street}, ${this.state.address.city})`
-
     }
 
     //loop that goes through each item object in the inventoryData list
@@ -86,13 +80,13 @@ export default class InvList extends Component {
                         </td>
                     </tr>
                     )
-    }
+        }
+
     return (
         <div className="InvListParent">
             <div className="InvListParent__title">
                 <h1>{title}</h1>
                 <span>Filter</span>
-                {/* ideally should have filter functionality */}
             </div>
             <table>
                 <thead>
@@ -111,6 +105,5 @@ export default class InvList extends Component {
             </table>
         </div>
     )
-    }
 }
 

@@ -42,7 +42,7 @@ app.delete('/inventory/:id', (req, res) => {
     let found= inventoryData.find(item=>item.id===itemId);
     foundItem = inventoryData.indexOf(found);
     inventoryData.splice(foundItem, 1);
-    res.json(inventoryData[foundItem]);
+    res.json(inventoryData);
     console.log(inventoryData); 
 })
 
