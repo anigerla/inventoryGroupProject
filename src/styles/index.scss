@@ -271,10 +271,12 @@ a {                        // <Link> shows up as an <a> tag so styling to not be
       height: 40px;
       background-color: $grey1;
       border-radius: 50%;
+      padding-bottom: 2.5rem;
     }
     svg {
       margin: 0 70px 0 16px;
       transform: rotate(-90deg);
+
       g {
           fill: $grey2;
         }
@@ -282,61 +284,59 @@ a {                        // <Link> shows up as an <a> tag so styling to not be
 
     /* The container <div> - needed to position the dropdown content */
     .dropdownParent {
-        position: relative;
-        background-color: white;
+      position: relative;
+      background-color: white;
     }
 
     /* Dropdown Child container hidden by default */
     .dropdownChild {
-        display: none;
-        position: absolute;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-        left: -7.5rem;
-        bottom: -3rem;
-        background-color: white;
-        border: 1px solid $grey4;
-        border-radius: 0;
+      display: none;
+      position: absolute;
+      min-width: 120px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      right: 0.5rem;
+      top: 3.5rem;
+      background-color: white;
+      border: 1px solid $grey4;
+      border-radius: 0;
+      min-height: 80px;
     }
 
-      // .dropdownChild--container {
-      //   display: flex;
-      //   flex-direction: column;
-      //   align-items: flex-start;
-      //   font-size: 14px;
-      
-      // & .itemLink:hover {
-      //   text-decoration: none;
-      // }
+    .dropdownChild--container {
+      font-size: 14px;
+      background-color: white;
+      border-radius: 0;
+      height: 100%;
+      width: 100%;
 
-      // & div {
-      //   width: 100%;
-      // }
+      & div {
+        background-color: white;
+        border-radius: 0;
+        width: 100%;
+      }
 
-      // & span {
-      //     padding: 0.5rem;
-      // }
+      & .dropdwnSpanHolder {
+        background-color: white;
+        border-radius: 0;
 
-      // & a {
-      //   color: black;
-      // }
-
-    }  
+        & span {
+        padding: 0.5rem;
+        position: absolute;
+        }
+      }
+   }   
 
     // /* Show the dropdown menu on hover */
     .dropdownParent:hover .dropdownChild {
       display: block;
-      cursor: pointer;
-      text-decoration: none;
     }
 
     // /* Change color of dropdown links on hover */
     .dropdownChild--container div:hover {
       background-color: #ddd;
+      cursor: pointer;
     }
-
-
   }
 }
 //-------------------------------------------------------------------------------------------
@@ -431,7 +431,6 @@ a {                        // <Link> shows up as an <a> tag so styling to not be
       }
 
       & td img:hover {
-        //use Matt's approach to add hover effect
         cursor: pointer;
         }
 
@@ -444,20 +443,20 @@ a {                        // <Link> shows up as an <a> tag so styling to not be
 
     /* The container <div> - needed to position the dropdown content */
     .dropdownParent {
-        position: relative;
+      position: relative;
     }
 
     /* Dropdown Child container hidden by default */
     .dropdownChild {
-        display: none;
-        position: absolute;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-        left: -7.5rem;
-        bottom: -5rem;
-        background-color: white;
-        border: 1px solid $grey4;
+      display: none;
+      position: absolute;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      left: -7.5rem;
+      bottom: -5rem;
+      background-color: white;
+      border: 1px solid $grey4;
     }
 
       .dropdownChild--container {
@@ -475,7 +474,8 @@ a {                        // <Link> shows up as an <a> tag so styling to not be
       }
 
       & span {
-          padding: 0.5rem;
+        padding: 0.5rem;
+        padding-left: 1rem;
       }
 
       & a {
@@ -494,10 +494,6 @@ a {                        // <Link> shows up as an <a> tag so styling to not be
     // /* Change color of dropdown links on hover */
     .dropdownChild--container div:hover {
       background-color: #ddd;
-      .error{
-        column-span: 7;
-      }
-
     }
   }
 }
