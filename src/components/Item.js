@@ -18,10 +18,10 @@ export default class Item extends Component {
                 <td>{this.props.quantity}</td>
                 <td>{this.props.status}</td>
                 <td>
-                    <div class="dropdownParent">
+                    <div className="dropdownParent">
                         <img src="./Assets/Icons/Row Menu.svg" alt="" />
-                        <div class="dropdownChild">
-                            <div class="dropdownChild--container">
+                        <div className="dropdownChild">
+                            <div className="dropdownChild--container">
                                 <div>
                                     <Link to={`/inventory/${this.props.id}`} className="itemLink">
                                         <span>View Product</span>

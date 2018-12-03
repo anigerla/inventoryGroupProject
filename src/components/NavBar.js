@@ -10,14 +10,14 @@ export default class NavBar extends Component {
         </form>
         <div className="navbar__user">
           <div></div>
-          <div class="dropdownParent">
+          <div className="dropdownParent">
             <BackImg/>
-            <div class="dropdownChild">
-              <div class="dropdownChild--container">
-                <div class="dropdwnSpanHolder">
+            <div className="dropdownChild">
+              <div className="dropdownChild--container">
+                <div className="dropdwnSpanHolder">
                     <span>Profile</span> 
                 </div>
-                <div class="dropdwnSpanHolder">
+                <div className="dropdwnSpanHolder">
                   <span>Sign Out</span>
                 </div>
               </div>

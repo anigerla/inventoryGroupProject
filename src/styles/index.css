@@ -250,7 +250,7 @@ a {
 }
 
 .navbar .navbar__user svg {
-  margin: 0 70px 0 16px;
+  margin: 10px 70px 0 16px;
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
 }

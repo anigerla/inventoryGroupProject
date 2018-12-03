@@ -15,16 +15,15 @@ export default class InvList extends Component {
         if(this.props.warehouseId){
             fetch(`${serverURL}${warehousesEP}${this.props.warehouseId}`)
                 .then(res=>{ 
-                            if(res.status===200){
-                                this.setState({fetched:true});
-                            }else{
-                                this.setState({fetched:false});
-                            }
-                            return res.json()})          // javascript ternary operator '<question> ? <item1>:<item2>' that sets state to empty array in 404 response
-                .then(data=>this.setState({warehouseInv:(data.items? data.items:[])
+                    if(res.status===200){
+                        this.setState({fetched:true});
+                    }else{
+                        this.setState({fetched:false});
+                    }
+                    return res.json()})          // javascript ternary operator '<question> ? <item1>:<item2>' that sets state to empty array in 404 response
+                .then(data=> this.setState({warehouseInv:(data.items? data.items:[])}))
                 //ternary that sets state.address.street to unknown if data.address comes back undefined(in a 404 response for example),address:(data.address? data.address:{street:'Unknown Warehouse', city:""}),name:(data.name? data.name:"")}))
                 .catch(err=>console.log(err))
-        }))
         }
     }
     

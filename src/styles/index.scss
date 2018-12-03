@@ -273,8 +273,9 @@ a {                        // <Link> shows up as an <a> tag so styling to not be
       border-radius: 50%;
       padding-bottom: 2.5rem;
     }
+    
     svg {
-      margin: 0 70px 0 16px;
+      margin: 10px 70px 0 16px;
       transform: rotate(-90deg);
 
       g {

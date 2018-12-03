@@ -69,8 +69,8 @@ app.get('/warehouses/:id',(req,res)=>{
     let warehouse = warehouseData.find(item=>{return item.warehouseId ===req.params.id})
     if(warehouse){
         res.json( { address:warehouse.address,
-                   name: warehouse.warehouseName,
-                 items:warehouseArray});
+                    name: warehouse.warehouseName,
+                    items:warehouseArray});
     }else{
         res.status(404).json('Warehouse does not have specific inventory');
     }
