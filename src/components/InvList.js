@@ -15,18 +15,33 @@ export default class InvList extends Component {
         if(this.props.warehouseId){
             fetch(`${serverURL}${warehousesEP}${this.props.warehouseId}`)
                 .then(res=>{ 
-                    if(res.status===200){
-                        this.setState({fetched:true});
-                    } else {
-                        this.setState({fetched:'error'});
-                    }
-                        return res.json()})             // javascript ternary operator '<question> ? <item1>:<item2>' that sets state to empty array in 404 response
+                            if(res.status===200){
+                                this.setState({fetched:true});
+                            }else{
+                                this.setState({fetched:false});
+                            }
+                            return res.json()})          // javascript ternary operator '<question> ? <item1>:<item2>' that sets state to empty array in 404 response
                 .then(data=>this.setState({warehouseInv:(data.items? data.items:[])
                 //ternary that sets state.address.street to unknown if data.address comes back undefined(in a 404 response for example),address:(data.address? data.address:{street:'Unknown Warehouse', city:""}),name:(data.name? data.name:"")}))
                 .catch(err=>console.log(err))
         }))
         }
     }
+    
+    //resets state when navigating from unknown warehouse invlist to inventory
+    static getDerivedStateFromProps(props,state){
+        if(props.all){
+            return {
+                warehouseInv:[],
+                address:{},
+                name:"",
+                fetched:null
+            }
+        }else{
+            return state
+        }
+    }
+
     //the state tracks only warehouse specific inv that is fetched
     state={
         warehouseInv:[],
@@ -71,7 +86,7 @@ export default class InvList extends Component {
             itemList.push(oneItem);
         }
     
-    if(this.state.fetched==='error'){
+    if(this.state.fetched===false){
         itemList = (<tr>
                         <td className="error">
                             <h3>Warehouse does not exist</h3>
