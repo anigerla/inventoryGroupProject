@@ -98,7 +98,7 @@ a {
           flex-direction: column;
   background-color: #003B77;
   min-width: 250px;
-  z-index: 900;
+  z-index: 80;
   min-height: 100vh;
 }
 
@@ -190,7 +190,7 @@ a {
   background-image: url("../components/Image Components/Search.svg");
   background-repeat: no-repeat;
   background-position: right center;
-  background-position-x: 340px;
+  background-position-x: 95%;
 }
 
 .navbar .navbar__form input::-webkit-input-placeholder {
@@ -237,6 +237,8 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  /* The container <div> - needed to position the dropdown content */
+  /* Dropdown Child container hidden by default */
 }
 
 .navbar .navbar__user div {
@@ -244,16 +246,70 @@ a {
   height: 40px;
   background-color: #7c7c7c;
   border-radius: 50%;
+  padding-bottom: 2.5rem;
 }
 
 .navbar .navbar__user svg {
-  margin: 0 70px 0 16px;
+  margin: 10px 70px 0 16px;
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
 }
 
 .navbar .navbar__user svg g {
   fill: #ADADAD;
+}
+
+.navbar .navbar__user .dropdownParent {
+  position: relative;
+  background-color: white;
+}
+
+.navbar .navbar__user .dropdownChild {
+  display: none;
+  position: absolute;
+  min-width: 120px;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0.5rem;
+  top: 2.5rem;
+  background-color: white;
+  border: 1px solid #DEDEDE;
+  border-radius: 0;
+  min-height: 80px;
+}
+
+.navbar .navbar__user .dropdownChild--container {
+  font-size: 14px;
+  background-color: white;
+  border-radius: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.navbar .navbar__user .dropdownChild--container div {
+  background-color: white;
+  border-radius: 0;
+  width: 100%;
+}
+
+.navbar .navbar__user .dropdownChild--container .dropdwnSpanHolder {
+  background-color: white;
+  border-radius: 0;
+}
+
+.navbar .navbar__user .dropdownChild--container .dropdwnSpanHolder span {
+  padding: 0.5rem;
+  position: absolute;
+}
+
+.navbar .navbar__user .dropdownParent:hover .dropdownChild {
+  display: block;
+}
+
+.navbar .navbar__user .dropdownChild--container div:hover {
+  background-color: #ddd;
+  cursor: pointer;
 }
 
 .InvListParent {
@@ -293,10 +349,12 @@ a {
   width: 100%;
   border: 1px solid #DEDEDE;
   border-collapse: collapse;
+  /* The container <div> - needed to position the dropdown content */
+  /* Dropdown Child container hidden by default */
 }
 
 .InvListParent table th, .InvListParent table td {
-  padding: 1.5rem;
+  padding: 2%;
 }
 
 .InvListParent table td:nth-child(n+4), .InvListParent table th:nth-child(n+4) {
@@ -342,7 +400,7 @@ a {
   text-align: left;
 }
 
-.InvListParent table .ItemRow span:first-child:hover {
+.InvListParent table .prodName:hover {
   cursor: pointer;
   text-decoration: underline;
   color: #3A3A3A;
@@ -361,11 +419,69 @@ a {
   cursor: pointer;
 }
 
-.InvListParent table td span:first-child {
+.InvListParent table td .prodName {
   color: #004892;
   font-weight: bold;
   font-size: 16px;
   padding-bottom: 5px;
+}
+
+.InvListParent table .dropdownParent {
+  position: relative;
+}
+
+.InvListParent table .dropdownChild {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  left: -7.5rem;
+  bottom: -5rem;
+  background-color: white;
+  border: 1px solid #DEDEDE;
+}
+
+.InvListParent table .dropdownChild--container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-size: 14px;
+}
+
+.InvListParent table .dropdownChild--container .itemLink:hover {
+  text-decoration: none;
+}
+
+.InvListParent table .dropdownChild--container div {
+  width: 100%;
+}
+
+.InvListParent table .dropdownChild--container span {
+  padding: 0.5rem;
+  padding-left: 1rem;
+}
+
+.InvListParent table .dropdownChild--container a {
+  color: black;
+}
+
+.InvListParent table .dropdownParent:hover .dropdownChild {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.InvListParent table .dropdownChild--container div:hover {
+  background-color: #ddd;
 }
 
 .warehouse__card {
@@ -411,6 +527,10 @@ a {
   font-weight: 600;
 }
 
+.warehouse__card .warehouse__details .warehouse__contact, .warehouse__card .warehouse__details .warehouse__address, .warehouse__card .warehouse__details .warehouse__inventory {
+  margin: 15px 25px 0 0;
+}
+
 .warehouse__card .warehouse__details .warehouse--black {
   color: #3A3A3A;
   margin-bottom: 8px;
@@ -421,7 +541,7 @@ a {
   color: #7c7c7c;
 }
 
-.warehouse__add {
+.warehouse__addBtn {
   width: 65px;
   height: 65px;
   background-color: #004892;
@@ -446,7 +566,7 @@ a {
   cursor: pointer;
 }
 
-.warehouse__add p {
+.warehouse__addBtn p {
   width: 22px;
   height: 22px;
   margin: 0;
@@ -462,8 +582,162 @@ a {
   color: #FFFFFF;
 }
 
-.warehouse__add:hover {
+.warehouse__addBtn:hover {
   background-color: #003B77;
+}
+
+.warehouse__blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000099;
+  z-index: 980;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.warehouse__add {
+  position: absolute;
+  background-color: #FFFFFF;
+  width: 50%;
+  height: 90%;
+  padding: 20px 60px;
+  border-radius: 3px;
+  border: 1px solid #ADADAD;
+}
+
+.warehouse__add h1 {
+  font-weight: 500;
+}
+
+.warehouse__add form label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-weight: 500;
+}
+
+.warehouse__add form label input, .warehouse__add form label select {
+  font-family: 'Avenir Next';
+  max-width: 238px;
+  height: 40px;
+  background-color: #FFFFFF;
+  border: solid 1px #CACACA;
+  border-radius: 2px;
+  font-size: 14px;
+  line-height: 1.4em;
+  padding: 15px 14px;
+  outline: none;
+  margin: 5px 0 15px 0;
+}
+
+.warehouse__add form label input:focus, .warehouse__add form label select:focus {
+  background-color: #F7F7F7;
+  border: solid 1px #004892;
+  border-radius: 2px;
+}
+
+.warehouse__add form .add__warehouseName {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.warehouse__add form .add__warehouseDetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 20px 0 30px;
+}
+
+.warehouse__add form .add__warehouseDetails .add__address, .warehouse__add form .add__warehouseDetails .add__contactInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 50%;
+  margin-right: 15px;
+}
+
+.warehouse__add form .add__warehouseDetails .add__address h4, .warehouse__add form .add__warehouseDetails .add__contactInfo h4 {
+  margin: 15px 0;
+}
+
+.warehouse__add form #addWarehouseBtn {
+  font-family: 'Avenir Next';
+  background-color: #004892;
+  border-radius: 3px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4em;
+  letter-spacing: .2px;
+  border: none;
+  width: 131px;
+  height: 38px;
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.warehouse__add form #addWarehouseBtn:hover {
+  background-color: #003B77;
+}
+
+.warehouse__add form #addWarehouseBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.warehouse__add .add__warehouse--close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.warehouse__add .add__warehouse--close svg {
+  margin-left: 8px;
+}
+
+.warehouse__add .add__warehouse--close p {
+  margin: 0;
+  font-weight: 500;
+  color: #ADADAD;
+}
+
+.warehouse__add .add__warehouse--close:hover p {
+  color: #3A3A3A;
+}
+
+.warehouse__add .add__warehouse--close:hover svg g {
+  fill: #3A3A3A;
 }
 
 .InvDetailsParent {
@@ -503,10 +777,13 @@ a {
   border-radius: 3px;
   color: #FFFFFF;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.4em;
   letter-spacing: .2px;
   border: none;
+  width: 131px;
+  height: 38px;
+  padding: 0 20px;
   padding: .8em 2em;
   display: inline-block;
   text-align: right;
@@ -536,5 +813,117 @@ a {
 
 .InvDetailsParent .detailCard .details li {
   margin: 2em 0;
+}
+
+.footer {
+  display: none;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: #003B77;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer .sidebar__links {
+  color: #FFFFFF80;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+  text-decoration: none;
+}
+
+.footer .sidebar__links:hover {
+  color: #FFFFFF;
+  background-color: #004892;
+}
+
+.footer .sidebar__links:hover svg g {
+  fill: #FFFFFF;
+}
+
+.footer .sidebar__links svg {
+  margin-right: 10px;
+}
+
+.footer .sidebar__links h3 {
+  font-weight: 600;
+  margin: 0;
+}
+
+@media screen and (max-width: 890px) {
+  .App {
+    display: block;
+  }
+  .sidebar {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: 70px;
+    min-height: 70px;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .sidebar .sidebar__logo, .sidebar .sidebar__links {
+    height: 100%;
+    width: 100%;
+    margin: 0 10px;
+    padding: 0;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .sidebar .sidebar__logo img, .sidebar .sidebar__links img {
+    margin: 0;
+  }
+  .sidebar .sidebar__logo svg, .sidebar .sidebar__links svg {
+    margin-right: 5px;
+  }
+  .navbar {
+    padding: 0 40px;
+  }
+  .navbar .navbar__user svg {
+    margin: 0 10px 0 16px;
+  }
+  .warehouse__addBtn {
+    bottom: 40px;
+    right: 40px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .InvListParent, .InvDetailsParent {
+    padding: 1rem 0.5rem 3.5rem;
+  }
+  .sidebar :first-child {
+    width: 100%;
+  }
+  .sidebar .sidebar__links {
+    display: none;
+  }
+  .navbar .navbar__form {
+    width: 70%;
+  }
+  .navbar .navbar__form input {
+    width: 100%;
+  }
+  .InvListParent table th, .InvListParent table td {
+    padding: 1%;
+  }
+  .warehouse__addBtn {
+    bottom: 80px;
+  }
+  .footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 /*# sourceMappingURL=index.css.map */

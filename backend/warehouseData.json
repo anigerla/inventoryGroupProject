@@ -1,11 +1,13 @@
 [
     {
         "warehouseId": "A1",
+        "warehouseName": "The Hanger",
         "address": 
             {
             "street": "123 Main Street West",
             "city": "Toronto",
-            "zipcode": "M6H 2H2"
+            "zipcode": "M6H 2H2",
+            "country": "Canada"
             },
         "contact": 
             {
@@ -17,11 +19,13 @@
     },
     {
         "warehouseId": "A2",
+        "warehouseName": "The Bay",
         "address": 
             {
             "street": "123 Main Street West",
             "city": "Toronto",
-            "zipcode": "M6H 2H2"
+            "zipcode": "M6H 2H2",
+            "country": "Canada"
             },
         "contact": 
             {
@@ -33,11 +37,13 @@
     },
     {
         "warehouseId": "A3",
+        "warehouseName": "The Hanger Bay",
         "address": 
             {
             "street": "123 Main Street West",
             "city": "Toronto",
-            "zipcode": "M6H 2H2"
+            "zipcode": "M6H 2H2",
+            "country": "Canada"
             },
         "contact": 
             {
@@ -49,11 +55,13 @@
     },
     {
         "warehouseId": "A4",
+        "warehouseName": "Area 51",
         "address": 
             {
             "street": "123 Main Street West",
             "city": "Toronto",
-            "zipcode": "M6H 2H2"
+            "zipcode": "M6H 2H2",
+            "country": "Canada"
             },
         "contact": 
             {
