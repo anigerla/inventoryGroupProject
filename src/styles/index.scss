@@ -139,6 +139,7 @@ h4{
   line-height:1.4em;
   padding: 15px 14px;
 }
+
 @mixin activeFormField {
   background-color: $grey5;
   border: solid 1px $blue;
@@ -161,16 +162,15 @@ body {
 }
 
 // Main
-
 .main {
   width: 100%;
 }
 
-
 // ----- SideBar
-a{                        // <Link> shows up as an <a> tag so styling to not be underlined
+a {                        // <Link> shows up as an <a> tag so styling to not be underlined
   text-decoration: none;
 }
+
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -183,7 +183,7 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
     display: flex;
     justify-content: center;
     padding: 40px;
-    img{
+    img {
       height: 13px;
       width: 93px;
       margin-bottom: 80px;
@@ -218,13 +218,12 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
 }
 
 // ----- Nav Bar
-
 .container {
   display: flex;
   width: 100%;
 }
 
-.navbar{
+.navbar {
   height: 80px;
   display: flex;
   align-items: center;
@@ -233,8 +232,8 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
   box-shadow: -1px 2px 12px 2px $grey4;
   position: relative;
 
-  .navbar__form{
-    input{
+  .navbar__form {
+    input {
       width: 381px;
       height: 40px;
       background-color: $grey5;
@@ -259,30 +258,87 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
         color: $black;
         &::placeholder{
         color: $black;
-      }
+       }
       }
     }
   }
 
-  .navbar__user{
+  .navbar__user {
     display: flex;
     align-items: center;
-    div{
+    div {
       width: 40px;
       height: 40px;
       background-color: $grey1;
       border-radius: 50%;
+      padding-bottom: 2.5rem;
     }
-    svg{
+    svg {
       margin: 0 70px 0 16px;
       transform: rotate(-90deg);
+
       g {
           fill: $grey2;
         }
     }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdownParent {
+      position: relative;
+      background-color: white;
+    }
+
+    /* Dropdown Child container hidden by default */
+    .dropdownChild {
+      display: none;
+      position: absolute;
+      min-width: 120px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      right: 0.5rem;
+      top: 2.5rem;
+      background-color: white;
+      border: 1px solid $grey4;
+      border-radius: 0;
+      min-height: 80px;
+    }
+
+    .dropdownChild--container {
+      font-size: 14px;
+      background-color: white;
+      border-radius: 0;
+      height: 100%;
+      width: 100%;
+
+      & div {
+        background-color: white;
+        border-radius: 0;
+        width: 100%;
+      }
+
+      & .dropdwnSpanHolder {
+        background-color: white;
+        border-radius: 0;
+
+        & span {
+        padding: 0.5rem;
+        position: absolute;
+        }
+      }
+   }   
+
+    // /* Show the dropdown menu on hover */
+    .dropdownParent:hover .dropdownChild {
+      display: block;
+    }
+
+    // /* Change color of dropdown links on hover */
+    .dropdownChild--container div:hover {
+      background-color: #ddd;
+      cursor: pointer;
+    }
   }
 }
-
 //-------------------------------------------------------------------------------------------
 // Inventory List Component Styling starts
 
@@ -297,7 +353,7 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
     align-items: center;
     margin: 0 2rem;
 
-    h1{
+    h1 {
       margin: 0;
     }
 
@@ -315,7 +371,7 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
   & table {
     width: 100%;
     border: 1px solid $grey4;
-    border-collapse:collapse; 
+    border-collapse: collapse; 
 
     & th, td {
       padding: 2%;
@@ -353,15 +409,13 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
       background-color: $grey5;
     }
 
-   
-
     & .ItemRow span:first-child {
       display: flex;
       flex-direction: column;
       text-align: left;
     }
 
-    & .ItemRow span:first-child:hover {
+    & .prodName:hover {
       cursor: pointer;
       text-decoration: underline;
       color: $black;
@@ -377,26 +431,71 @@ a{                        // <Link> shows up as an <a> tag so styling to not be 
       }
 
       & td img:hover {
-        //use Matt's approach to add hover effect
         cursor: pointer;
         }
 
-      & td span:first-child {
+      & td .prodName {
         color: $blue;
         font-weight: bold;
         font-size: 16px;
         padding-bottom: 5px;
       }
 
-      .error{
-        column-span: 7;
-      }
-
+    /* The container <div> - needed to position the dropdown content */
+    .dropdownParent {
+      position: relative;
     }
 
-    //Dots Icon styling
-    //Fill colour: #3A3A3A
-    //Single Dot Size: 5 x 5 px
+    /* Dropdown Child container hidden by default */
+    .dropdownChild {
+      display: none;
+      position: absolute;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      left: -7.5rem;
+      bottom: -5rem;
+      background-color: white;
+      border: 1px solid $grey4;
+    }
+
+      .dropdownChild--container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 14px;
+      
+      & .itemLink:hover {
+        text-decoration: none;
+      }
+
+      & div {
+        width: 100%;
+      }
+
+      & span {
+        padding: 0.5rem;
+        padding-left: 1rem;
+      }
+
+      & a {
+        color: black;
+      }
+
+    }  
+
+    // /* Show the dropdown menu on hover */
+    .dropdownParent:hover .dropdownChild {
+      display: block;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    // /* Change color of dropdown links on hover */
+    .dropdownChild--container div:hover {
+      background-color: #ddd;
+    }
+  }
 }
 
 // ----- Warehouse List

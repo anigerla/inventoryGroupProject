@@ -8,7 +8,9 @@ const warehousesEP = 'warehouses/';
 
 export default class InvList extends Component {
 
-    componentDidMount(){
+    //loop that goes through each item object in the inventoryData list
+    //and passed the elements into relevant slots within the Item component
+    componentDidMount() {
     //only fetches if there is an warehouseId, otherwise use the items passed through param
         if(this.props.warehouseId){
             fetch(`${serverURL}${warehousesEP}${this.props.warehouseId}`)
@@ -20,12 +22,9 @@ export default class InvList extends Component {
                             }
                             return res.json()})          // javascript ternary operator '<question> ? <item1>:<item2>' that sets state to empty array in 404 response
                 .then(data=>this.setState({warehouseInv:(data.items? data.items:[])
-                                                       //ternary that sets state.address.street to unknown if data.address comes back undefined(in a 404 response for example)
-                                            ,address:(data.address? data.address:{street:'Unknown Warehouse',
-                                                                                city:""})
-                                            ,name:(data.name? data.name:"")
-                                             }))
-                .catch(err=>console.log(err));
+                //ternary that sets state.address.street to unknown if data.address comes back undefined(in a 404 response for example),address:(data.address? data.address:{street:'Unknown Warehouse', city:""}),name:(data.name? data.name:"")}))
+                .catch(err=>console.log(err))
+        }))
         }
     }
     
@@ -57,9 +56,6 @@ export default class InvList extends Component {
     //these variables will be used when state is introduced and static data is changed to dynamic
     //please, do not remove    
     let loadInv = this.props.itemsArray;
-
-
-
     //add conditional render for warehouse inventory 
     let title="Inventory";
     //warehouseid, if defined is provided by props 
@@ -70,7 +66,6 @@ export default class InvList extends Component {
         //if the paramWHid and address exist, means we want to load from state instead of parent props
         loadInv= this.state.warehouseInv;
         title = `Inventory at ${this.state.name} (${this.state.address.street}, ${this.state.address.city})`
-
     }
 
     //loop that goes through each item object in the inventoryData list
@@ -79,7 +74,7 @@ export default class InvList extends Component {
    
         for (let i=0; i < loadInv.length; i++) {
             let oneItem = 
-                <Item id = {loadInv[i].id}  
+                <Item removeItem={this.props.removeItem} id = {loadInv[i].id}  
                     prodName={loadInv[i].productName}
                     prodDescr={loadInv[i].productdescr}
                     lastOrder={loadInv[i].lastOrder}
@@ -98,13 +93,13 @@ export default class InvList extends Component {
                         </td>
                     </tr>
                     )
-    }
+        }
+
     return (
         <div className="InvListParent">
             <div className="InvListParent__title">
                 <h1>{title}</h1>
                 <span>Filter</span>
-                {/* ideally should have filter functionality */}
             </div>
             <table>
                 <thead>
@@ -123,15 +118,5 @@ export default class InvList extends Component {
             </table>
         </div>
     )
-    }
+ }
 }
-
-//Please, do not remove
-//The comments for a ticket that need to be introduced to the code at a later stage:
-// This component will need state.
-// state setting for Inventory List data - will be moved to the main parent component
-// state = {
-//     invList: data,
-// }
-
-// This component will also be used to display the inventory for a single warehouse.Your fetch to the API will differ depending on if there is a warehouse_id prop or not. Be sure to collaborate with the person who has the ticket “Front - End: Warehouse Inventory List“.

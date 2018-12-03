@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 // importing data from other components
 const warehouseData = require('./warehouseData');
+// const inventoryData = require('./inventoryData');
 const inventoryData = require('./inventoryData');
 const inventoryDetail = require('./inventoryDetails');
 
@@ -27,7 +28,23 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
     //Body Parser code ends
  //middleware functions end
-//-----------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------
+//GET request that receives full list of inventory data
+app.get('/inventory', (req, res) => {
+    res.json(inventoryData);
+})
+
+//DELETE request that sends the object that is to be removed
+//from the list
+app.delete('/inventory/:id', (req, res) => {
+    const itemId = req.params.id;
+    // console.log(itemId)
+    let found= inventoryData.find(item=>item.id===itemId);
+    foundItem = inventoryData.indexOf(found);
+    inventoryData.splice(foundItem, 1);
+    res.json(inventoryData);
+    console.log(inventoryData); 
+})
 
 
 //get request to return all inventory items 
@@ -97,5 +114,5 @@ app.listen(8080, (err) => {
     if (err) {
         return console.error(err);
     }
-    console.log("choo choo on 8080")
+    console.log("Chattanooga Choo Choo at 8080");
 })
