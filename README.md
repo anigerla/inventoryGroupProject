@@ -1,5 +1,7 @@
 ## General info
 This project is an inventory website that displays a list of total items in the inventory, a warehouse list, individual inventory items, warehouse locations and a list of items held by a specific warehouse. This is a single-page application (SPA) that displays the above data upon user request. The technology used to create the frontend is React, Javascript and HTML. The backend server is run on Node.js express package and the data comes in a data array file (there is no third-party database serving the data to the website).
+
+This is a group project. I was responsible for inventory list component (frontend and backend) and general backend server setup.
 	
 ## Technologies
 Project is created with:
